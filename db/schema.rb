@@ -10,9 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_110617) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_07_151758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_comments_on_task_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "equipment_type"
+    t.string "name"
+    t.boolean "archived"
+    t.boolean "warranty_valid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "networks", force: :cascade do |t|
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.integer "frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text "extra_info"
+    t.boolean "complete_task", default: false
+    t.bigint "manager_id"
+    t.bigint "technician_id"
+    t.bigint "equipment_id", null: false
+    t.bigint "waterpoint_id", null: false
+    t.bigint "network_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_tasks_on_equipment_id"
+    t.index ["manager_id"], name: "index_tasks_on_manager_id"
+    t.index ["network_id"], name: "index_tasks_on_network_id"
+    t.index ["technician_id"], name: "index_tasks_on_technician_id"
+    t.index ["waterpoint_id"], name: "index_tasks_on_waterpoint_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +73,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_110617) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "technician"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "waterpoints", force: :cascade do |t|
+    t.string "name"
+    t.string "waterpoint_type"
+    t.string "address"
+    t.boolean "kiosk"
+    t.bigint "network_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["network_id"], name: "index_waterpoints_on_network_id"
+  end
+
+  add_foreign_key "comments", "tasks"
+  add_foreign_key "comments", "users"
+  add_foreign_key "tasks", "equipment"
+  add_foreign_key "tasks", "networks"
+  add_foreign_key "tasks", "users", column: "manager_id"
+  add_foreign_key "tasks", "users", column: "technician_id"
+  add_foreign_key "tasks", "waterpoints"
+  add_foreign_key "waterpoints", "networks"
 end
