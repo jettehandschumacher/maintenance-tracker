@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
 Network.destroy_all
 Equipment.destroy_all
 
@@ -39,7 +38,7 @@ equipment_names = {
   'Totalizers' => 'Meter',
   'Controller' => 'Electrics',
   'CashPower' => 'Meter',
-  'UV System 165W-140LPM' => 'Electrics' ,
+  'UV System 165W-140LPM' => 'Electrics',
   'Grundfos submersible pump' => 'Pump',
   'Aqua Flo' => 'Water',
   'Wiring' => 'Electrics',
