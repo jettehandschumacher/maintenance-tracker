@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+.pages-content {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin: 24px;
+}
+
+.tasks-networks {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-radius: 10px;
+}
+
+.tasks {
+  background-color: white;
+  margin-right: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.networks {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.stats {
+  margin-top: 24px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
