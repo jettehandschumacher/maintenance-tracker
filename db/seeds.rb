@@ -6,62 +6,101 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Task.destroy_all
+Waterpoint.destroy_all
 Network.destroy_all
 Equipment.destroy_all
+Service.destroy_all
+User.destroy_all
+Comment.destroy_all
 
-puts "Creating users..."
-jette = User.create!(email: "jette@test.com", password: "123456", first_name: "jette", last_name: 'handschumacher')
-puts "Creating users..."
-ziggy = User.create!(email: "ziggy@test.com", password: "123456", first_name: "dziugas", last_name: "bartkevicius", technician: true)
+puts "Destroyed data"
 
-equipment_names = {
-  'grundfos pump' => 'Pump',
-  'solar pannels' => 'Panel',
-  'Tank 5m3' => 'Tank',
-  'Tank 10m3' => 'Tank',
-  'Pentek filter system' => 'Filter',
-  '20 inch 2 stage filter system(GAC & CTO)' => 'Filter',
-  'Klorman inline dispencer' => 'Filter',
-  'Kiosk superstructure' => 'Kiosk',
-  'Water softener' => 'Water',
-  '15 KVA Generator' => 'Electrics',
-  'Booster pump' => 'Pump',
-  'Electric Kit(Box, Fuses, inverter, solar controller)' => 'Electrics',
-  'Batteries' => 'Electrics',
-  'Pre-Paid Meter' => 'Electrics',
-  'Pressure Switch' => 'Electrics',
-  'Pressure gauges' => 'Meter',
-  'Ball Valves 40mm' => 'Electrics',
-  'Diffull Pump' => 'Pump',
-  'Dosatron' => 'Pump',
-  'Flow meter' => 'Meter',
-  'Totalizers' => 'Meter',
-  'Controller' => 'Electrics',
-  'CashPower' => 'Meter',
-  'UV System 165W-140LPM' => 'Electrics',
-  'Grundfos submersible pump' => 'Pump',
-  'Aqua Flo' => 'Water',
-  'Wiring' => 'Electrics',
-  'Difful submersible pump' => 'Pump',
-  'Difful Solar Pump 200 Watts' => 'Pump',
-  'Aquasept inline' => 'Water',
-  'Sun pump' => 'Pump',
-  'Pressure tank manifold' => 'Tank',
-  'UV System 55W-45LPM' => 'Electrics'
-}
+christelle = User.create!(email: "christelle@test.com", password: "123456", first_name: "christelle", last_name: 'kwizera', technician: false)
+djibril = User.create!(email: "djibril@test.com", password: "123456", first_name: "djibril", last_name: "hategekimana", technician: true)
+romain = User.create!(email: "romain@test.com", password: "123456", first_name: "romain", last_name: "zirimwabagabo", technician: true)
+bosco = User.create!(email: "bosco@test.com", password: "123456", first_name: "bosco", last_name: "urazibara", technician: true)
+christine = User.create!(email: "christine@test.com", password: "123456", first_name: "christine", last_name: "iradukunda", technician: true)
+emile = User.create!(email: "emile@test.com", password: "123456", first_name: "emile", last_name: "rugero", technician: true)
 
-equipment_names.each do |name, type|
-  Equipment.create!(name: name, equipment_type: type)
-end
+puts "Created users..."
 
-network_names = {
-  'Rwintare' => 'Rwintare Cell,Nyamirambo Sector',
-  'Kavumu' => 'Kavumu Cell, Mageragere Sector',
-  'Karukoro' => ' Karukoro Village, Nyamirambo Sector',
-  'Kanyinya' => 'Nzove Cell, Kanyinya Sector',
-  'Nyarufunzo' => ' Nyarufunzo Village, Mageragere Sector'
-}
+kiosk = Equipment.create!(name: "Kiosk superstructure", equipment_type: "Kiosk")
+grundfos_pump = Equipment.create!(name: "grundfos pump", equipment_type: "Pump")
+solar_pannels = Equipment.create!(name: "solar pannels", equipment_type: "Panel")
+tank_5m3 = Equipment.create!(name: "Tank 5m3", equipment_type: "Tank")
+tank_10m3 = Equipment.create!(name: "Tank 10m3", equipment_type: "Tank")
+filter_system = Equipment.create!(name: "Pentek filter system", equipment_type: "Filter")
+gac_cto = Equipment.create!(name: "20 inch 2 stage filter system(GAC & CTO)", equipment_type: "Filter")
+klorman = Equipment.create!(name: "Klorman inline dispencer", equipment_type: "Filter")
+softener = Equipment.create!(name: "Water softener", equipment_type: "Water")
+generator = Equipment.create!(name: "15 KVA Generator", equipment_type: "Electrics")
+booster_pump = Equipment.create!(name: "Booster pump", equipment_type: "Pump")
+electric_kit = Equipment.create!(name: "Electric kit", equipment_type: "Electrics")
+battereis = Equipment.create!(name: "Batteries", equipment_type: "Electrics")
+paid_meter = Equipment.create!(name: "Pre-Paid Meter", equipment_type: "Electrics")
+switch = Equipment.create!(name: "Pressure Switch", equipment_type: "Electrics")
+gauges = Equipment.create!(name: "Pressure gauges", equipment_type: "Meter")
+valves = Equipment.create!(name: "Ball Valves 40mm", equipment_type: "Electrics")
+dosatron = Equipment.create!(name: "Dosatron", equipment_type: "Pump")
+flow_meter = Equipment.create!(name: "Flow meter", equipment_type: "Meter")
+totalizer = Equipment.create!(name: "Totalizer", equipment_type: "Meter")
+controller = Equipment.create!(name: "Controller", equipment_type: "Electrics")
+cashpower = Equipment.create!(name: "CashPower", equipment_type: "Meter")
+uv_165W = Equipment.create!(name: "UV System 165W-140LPM", equipment_type: "Electrics")
+grundfos_submersible_pump = Equipment.create!(name: "Grundfos submersible pump", equipment_type: "Pump")
+aquasept = Equipment.create!(name: "Aquasept inline", equipment_type: "Water")
+sun_pump = Equipment.create!(name: "Sun pump", equipment_type: "Pump")
+pressure_tank = Equipment.create!(name: "Pressure tank manifold", equipment_type: "Tank")
+uv_55W = Equipment.create!(name: "UV System 55W-45LPM", equipment_type: "Electrics")
 
-network_names.each do |name, address|
-  Network.create!(name: name, network_address: address)
-end
+puts "Created Equipment"
+
+rwintare_network = Network.create!(name: "Rwintare", address: 'Rwintare Cell,Nyamirambo Sector')
+kavumu_network = Network.create!(name: "Kavumu", address: 'Kavumu Cell, Mageragere Sector')
+karukoro_network = Network.create!(name: "Karukoro", address: 'Karukoro Village, Nyamirambo Sector')
+kanyinya_network = Network.create!(name: "Kanyinya", address: 'Nzove Cell, Kanyinya Sector')
+nyarufunzo_network = Network.create!(name: "Nyarufunzo", address: 'Nyarufunzo Village, Mageragere Sector')
+rusizi_network = Network.create!(name: "Rusizi", address: 'Rusizi Cell, Cyangugu, Ruanda')
+
+puts "Created Networks"
+
+rwintare_nexus = Waterpoint.create(name: "Rwintare", waterpoint_type: "Nexus", address: "Rwintare Cell,Nyamirambo Sector", kiosk: true, network: rwintare_network)
+rwintare_node = Waterpoint.create(name: "Rwintare", waterpoint_type: "Node", address: "Rwintare Cell,Nyamirambo Sector", kiosk: true, network: rwintare_network)
+kavumu_nexus = Waterpoint.create(name: "Kavumu", waterpoint_type: "Nexus", address: "Kavumu Cell, Mageragere Sector", kiosk: true, network: kavumu_network)
+kavumu_node = Waterpoint.create(name: "Kavumu", waterpoint_type: "Node", address: "Kavumu Cell, Mageragere Sector", kiosk: true, network: kavumu_network)
+karukoro_nexus = Waterpoint.create(name: "Karukoro", waterpoint_type: "Nexus", address: "Karukoro Village, Nyamirambo Sector", kiosk: true, network: karukoro_network)
+kanyinya_nexus = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Nexus", address: "Nzove Cell, Kanyinya Sector", kiosk: true, network: kanyinya_network)
+kanyinya_standpipe = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Standpipe", address: "Nzove Cell, Kanyinya Sector", kiosk: false, network: kanyinya_network)
+nyarufunzo_nexus = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Nexus", address: "Nyarufunzo Village, Mageragere Sector", kiosk: true, network: nyarufunzo_network)
+nyarufunzo_node = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Node", address: "Nyarufunzo Village, Mageragere Sector", kiosk: true, network: nyarufunzo_network)
+rusizi_nexus = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nexus", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: true, network: rusizi_network)
+rusizi_node = Waterpoint.create(name: "Rusizi", waterpoint_type: "Node", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: true, network: rusizi_network)
+rusizi_nano = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nano", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: false, network: rusizi_network)
+
+puts "Created Waterpoints"
+
+painting = Service.create(name: "Painting", frequency: 12)
+maintenance = Service.create(name: "Maintenance Check", frequency: 6)
+cleaning = Service.create(name: "Cleaning", frequency: 1)
+catridge = Service.create(name: "Cartridge Replacement", frequency: 6)
+replacement = Service.create(name: "Replacement", frequency: 2)
+resin = Service.create(name: "Resin Refill", frequency: 2)
+general = Service.create(name: "General Service", frequency: 6)
+
+puts "Created Services"
+
+task_one = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 2, 14), extra_info: "Please buy an additional two litres", complete_task: task, manager: christelle, technician: romain, equipment: kiosk, service: painting, waterpoint: rwintare_nexus, network: rwintare_network)
+task_two = Task.create(start_date: Date.new(2022, 6, 8), end_date: Date.new(2022, 6, 8), extra_info: "Clean the outside area of the Nexus", complete_task: task, manager: christelle, technician: christine, equipment: kiosk, service: cleaning, waterpoint: rusizi_nexus, network: rusizi_network)
+task_three = Task.create(start_date: Date.new(2022, 6, 1), end_date: Date.new(2022, 6, 2), extra_info: "Replace the dirty filter", complete_task: task, manager: christelle, technician: bosco, equipment: klorman, service: replacement, waterpoint: nyarufunzo_node, network: nyarufunzo_network)
+task_four = Task.create(start_date: Date.new(2022, 6, 29), end_date: Date.new(2022, 6, 30), extra_info: "Do a check-up visit on the kiosk", complete_task: task, manager: christelle, technician: djibril, equipment: kiosk, service: general, waterpoint: kavumu_nexus, network: kavumu_network)
+task_five = Task.create(start_date: Date.new(2022, 6, 22), end_date: Date.new(2022, 6, 24), extra_info: "Do a maintenance check-up on the totalizer", complete_task: task, manager: christelle, technician: romain, equipment: totalizer, service: maintenance, waterpoint: rwintare_nexus, network: rwintare_network)
+task_six = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 6, 15), extra_info: "Perform maintenance on the meter", complete_task: task, manager: christelle, technician: emile, equipment: paid_meter, service: maintenance, waterpoint: kavumu_nexus, network: kavumu_network)
+task_seven = Task.create(start_date: Date.new(2022, 6, 20), end_date: Date.new(2022, 6, 21), extra_info: "Catrige replacement on the filter required", complete_task: task, manager: christelle, technician: bosco, equipment: gac_cto, service: catridge, waterpoint: kanyinya_nexus, network: kanyinya_network)
+task_eight = Task.create(start_date: Date.new(2022, 6, 6), end_date: Date.new(2022, 6, 7), extra_info: "Please do a resin refill on the water softener", complete_task: task, manager: christelle, technician: djibril, equipment: softener, service: resin, waterpoint: karukoro_nexus, network: karukoro_network)
+
+puts "Created Tasks"
+
+comment_one = Comment.create(user: djibril, task: task_eight, content: "Muraho Christelle, ikibabaje nuko ntabashije kuzuza ibisigazwa byoroshya amazi - Mbabarira. Nzarangiza imirimo ejo.")
+
+puts "Create Comments"
