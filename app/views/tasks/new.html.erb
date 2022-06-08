@@ -1,0 +1,8 @@
+<%= simple_form_for @task do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :extra_info %>
+  <%= f.association :frequency %>
+  <%= f.association :name %>
+  <%= f.button :submit %>
+<% end %>
