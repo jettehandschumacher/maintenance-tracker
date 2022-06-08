@@ -3,6 +3,24 @@
   <div class="pages-content flex-grow-1">
     <div class="tasks-networks">
       <div class="tasks">
+        <div class="board-info">
+          <li><%= "TASKS FOR TODAY" %></li>
+          <li><%= link_to "See All", tasks_path(@tasks) %></li>
+        </div>
+        <div class="tasks-info">
+          <li><%= "TASK NAME" %></li>
+          <li><%= "TECHNICIAN" %></li>
+          <li><%= "DUE DATE" %></li>
+          <li><%= "NETWORK" %></li>
+        </div>
+        <% @tasks.first(5).each do |task| %>
+        <div class="task-details">
+          <li> <%= task.service.name %> </li>
+          <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
+          <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
+          <li> <%= task.network.name %> </li>
+        </div>
+        <% end %>
       </div>
       <div class="networks">
       </div>
