@@ -10,6 +10,7 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.references :equipment, null: false, foreign_key: true
       t.references :waterpoint, null: false, foreign_key: true
       t.references :network, null: false, foreign_key: true
+      t.references :service, null: false, foreign_key: true
 
       t.timestamps
     end

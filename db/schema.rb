@@ -57,11 +57,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_154712) do
     t.bigint "equipment_id", null: false
     t.bigint "waterpoint_id", null: false
     t.bigint "network_id", null: false
+    t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["equipment_id"], name: "index_tasks_on_equipment_id"
     t.index ["manager_id"], name: "index_tasks_on_manager_id"
     t.index ["network_id"], name: "index_tasks_on_network_id"
+    t.index ["service_id"], name: "index_tasks_on_service_id"
     t.index ["technician_id"], name: "index_tasks_on_technician_id"
     t.index ["waterpoint_id"], name: "index_tasks_on_waterpoint_id"
   end
@@ -96,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_154712) do
   add_foreign_key "comments", "users"
   add_foreign_key "tasks", "equipment"
   add_foreign_key "tasks", "networks"
+  add_foreign_key "tasks", "services"
   add_foreign_key "tasks", "users", column: "manager_id"
   add_foreign_key "tasks", "users", column: "technician_id"
   add_foreign_key "tasks", "waterpoints"

@@ -1,7 +1,8 @@
 class Task < ApplicationRecord
-  belongs_to :manager
-  belongs_to :technician
+  belongs_to :manager, class_name: "User"
+  belongs_to :technician, class_name: "User"
   belongs_to :equipment
   belongs_to :waterpoint
   belongs_to :network
+  belongs_to :service
 end
