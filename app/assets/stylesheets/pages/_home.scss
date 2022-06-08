@@ -1,1 +1,65 @@
 // Specific CSS for your home-page
+.pages-content {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin: 24px;
+}
+
+.tasks-networks {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-radius: 10px;
+}
+
+.tasks {
+  background-color: white;
+  margin-right: 24px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    .board-info {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      align-items: center;
+      padding-right: 48px;
+      padding-left: 48px;
+      color: rgb(138,138,138);
+      font-size: 16px;
+        a {
+        text-decoration: none;
+        color: rgb(32,96,61);
+        }
+    }
+    .tasks-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      color: rgb(138,138,138);
+      background-color: rgb(246,246,246);
+      border-radius: 3px;
+      border: solid 1px rgba(228,201,160,.2);
+    }
+    .task-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      text-align: center;
+      align-items: center;
+      list-style: none;
+    }
+}
+
+.networks {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.stats {
+  margin-top: 24px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
