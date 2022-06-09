@@ -4,4 +4,10 @@ class PagesController < ApplicationController
   def home
     @tasks = Task.all
   end
+
+  def statistics
+    @tasks = Task.all
+    @waterpoints = Waterpoint.all
+    @networks = Network.all
+  end
 end

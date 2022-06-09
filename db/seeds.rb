@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Comment.destroy_all
 Task.destroy_all
 Waterpoint.destroy_all
 Network.destroy_all
 Equipment.destroy_all
 Service.destroy_all
 User.destroy_all
-Comment.destroy_all
 
 puts "Destroyed data"
 
@@ -90,14 +90,14 @@ general = Service.create(name: "General Service", frequency: 6)
 
 puts "Created Services"
 
-task_one = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 2, 14), extra_info: "Please buy an additional two litres", complete_task: task, manager: christelle, technician: romain, equipment: kiosk, service: painting, waterpoint: rwintare_nexus, network: rwintare_network)
-task_two = Task.create(start_date: Date.new(2022, 6, 8), end_date: Date.new(2022, 6, 8), extra_info: "Clean the outside area of the Nexus", complete_task: task, manager: christelle, technician: christine, equipment: kiosk, service: cleaning, waterpoint: rusizi_nexus, network: rusizi_network)
-task_three = Task.create(start_date: Date.new(2022, 6, 1), end_date: Date.new(2022, 6, 2), extra_info: "Replace the dirty filter", complete_task: task, manager: christelle, technician: bosco, equipment: klorman, service: replacement, waterpoint: nyarufunzo_node, network: nyarufunzo_network)
-task_four = Task.create(start_date: Date.new(2022, 6, 29), end_date: Date.new(2022, 6, 30), extra_info: "Do a check-up visit on the kiosk", complete_task: task, manager: christelle, technician: djibril, equipment: kiosk, service: general, waterpoint: kavumu_nexus, network: kavumu_network)
-task_five = Task.create(start_date: Date.new(2022, 6, 22), end_date: Date.new(2022, 6, 24), extra_info: "Do a maintenance check-up on the totalizer", complete_task: task, manager: christelle, technician: romain, equipment: totalizer, service: maintenance, waterpoint: rwintare_nexus, network: rwintare_network)
-task_six = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 6, 15), extra_info: "Perform maintenance on the meter", complete_task: task, manager: christelle, technician: emile, equipment: paid_meter, service: maintenance, waterpoint: kavumu_nexus, network: kavumu_network)
-task_seven = Task.create(start_date: Date.new(2022, 6, 20), end_date: Date.new(2022, 6, 21), extra_info: "Catrige replacement on the filter required", complete_task: task, manager: christelle, technician: bosco, equipment: gac_cto, service: catridge, waterpoint: kanyinya_nexus, network: kanyinya_network)
-task_eight = Task.create(start_date: Date.new(2022, 6, 6), end_date: Date.new(2022, 6, 7), extra_info: "Please do a resin refill on the water softener", complete_task: task, manager: christelle, technician: djibril, equipment: softener, service: resin, waterpoint: karukoro_nexus, network: karukoro_network)
+task_one = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 2, 14), extra_info: "Please buy an additional two litres", complete_task: false, manager: christelle, technician: romain, equipment: kiosk, service: painting, waterpoint: rwintare_nexus, network: rwintare_network)
+task_two = Task.create(start_date: Date.new(2022, 6, 8), end_date: Date.new(2022, 6, 8), extra_info: "Clean the outside area of the Nexus", complete_task: false, manager: christelle, technician: christine, equipment: kiosk, service: cleaning, waterpoint: rusizi_nexus, network: rusizi_network)
+task_three = Task.create(start_date: Date.new(2022, 6, 1), end_date: Date.new(2022, 6, 2), extra_info: "Replace the dirty filter", complete_task: true, manager: christelle, technician: bosco, equipment: klorman, service: replacement, waterpoint: nyarufunzo_node, network: nyarufunzo_network)
+task_four = Task.create(start_date: Date.new(2022, 6, 29), end_date: Date.new(2022, 6, 30), extra_info: "Do a check-up visit on the kiosk", complete_task: true, manager: christelle, technician: djibril, equipment: kiosk, service: general, waterpoint: kavumu_nexus, network: kavumu_network)
+task_five = Task.create(start_date: Date.new(2022, 6, 22), end_date: Date.new(2022, 6, 24), extra_info: "Do a maintenance check-up on the totalizer", complete_task: true, manager: christelle, technician: romain, equipment: totalizer, service: maintenance, waterpoint: rwintare_nexus, network: rwintare_network)
+task_six = Task.create(start_date: Date.new(2022, 6, 12), end_date: Date.new(2022, 6, 15), extra_info: "Perform maintenance on the meter", complete_task: false, manager: christelle, technician: emile, equipment: paid_meter, service: maintenance, waterpoint: kavumu_nexus, network: kavumu_network)
+task_seven = Task.create(start_date: Date.new(2022, 6, 20), end_date: Date.new(2022, 6, 21), extra_info: "Catrige replacement on the filter required", complete_task: true, manager: christelle, technician: bosco, equipment: gac_cto, service: catridge, waterpoint: kanyinya_nexus, network: kanyinya_network)
+task_eight = Task.create(start_date: Date.new(2022, 6, 6), end_date: Date.new(2022, 6, 7), extra_info: "Please do a resin refill on the water softener", complete_task: false, manager: christelle, technician: djibril, equipment: softener, service: resin, waterpoint: karukoro_nexus, network: karukoro_network)
 
 puts "Created Tasks"
 
