@@ -3,7 +3,7 @@
   <div class="dashboard-menu">
     <ul class="ul-items">
       <li><%= image_tag "house.png" %><%= link_to "HOME", root_path(@root) %></li>
-      <li><%= image_tag "stats.png" %><%= link_to "STATS", root_path(@root) %></li>
+      <li><%= image_tag "stats.png" %><%= link_to "STATS", statistics_path(@statistics) %></li>
       <li><%= image_tag "tasks.png" %><%= link_to "TASKS", tasks_path(@tasks) %></li>
       <li><%= image_tag "tap.png" %><%= link_to "NETWORKS", networks_path(@networks) %></li>
     </ul>

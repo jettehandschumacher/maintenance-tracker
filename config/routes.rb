@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :comments, only: %i[new create edit]
   end
   resources :networks, only: %i[index show]
+  get "statistics", to: "pages#statistics", as: "statistics"
 end

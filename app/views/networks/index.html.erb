@@ -1,0 +1,13 @@
+<div class="d-flex">
+  <%= render "shared/sidebar" %>
+    <div class="networks-index flex-grow-1">
+      <div class="all-networks">
+        <% @networks.each do |network| %>
+          <div class="single-task">
+            <li> <%= network.name %> </li>
+            <li> <%= network.address%></li>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>
