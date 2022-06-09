@@ -56,27 +56,27 @@ uv_55W = Equipment.create!(name: "UV System 55W-45LPM", equipment_type: "Electri
 
 puts "Created Equipment"
 
-rwintare_network = Network.create!(name: "Rwintare", address: 'Rwintare Cell,Nyamirambo Sector')
-kavumu_network = Network.create!(name: "Kavumu", address: 'Kavumu Cell, Mageragere Sector')
-karukoro_network = Network.create!(name: "Karukoro", address: 'Karukoro Village, Nyamirambo Sector')
-kanyinya_network = Network.create!(name: "Kanyinya", address: 'Nzove Cell, Kanyinya Sector')
-nyarufunzo_network = Network.create!(name: "Nyarufunzo", address: 'Nyarufunzo Village, Mageragere Sector')
-rusizi_network = Network.create!(name: "Rusizi", address: 'Rusizi Cell, Cyangugu, Ruanda')
+rwintare_network = Network.create!(name: "Rwintare", address: '157 KN 2 Ave, Kigali, Ruanda')
+kavumu_network = Network.create!(name: "Kavumu", address: 'KK 329 St, Kigali, Ruanda')
+karukoro_network = Network.create!(name: "Karukoro", address: 'KG 5 Ave, Kigali, Ruanda')
+kanyinya_network = Network.create!(name: "Kanyinya", address: '19 KG 573 St, Kigali, Ruanda')
+nyarufunzo_network = Network.create!(name: "Nyarufunzo", address: 'KG 28 Ave, Kigali, Ruanda')
+rusizi_network = Network.create!(name: "Rusizi", address: '131 KN 2 Ave, Kigali, Ruanda')
 
 puts "Created Networks"
 
-rwintare_nexus = Waterpoint.create(name: "Rwintare", waterpoint_type: "Nexus", address: "Rwintare Cell,Nyamirambo Sector", kiosk: true, network: rwintare_network)
-rwintare_node = Waterpoint.create(name: "Rwintare", waterpoint_type: "Node", address: "Rwintare Cell,Nyamirambo Sector", kiosk: true, network: rwintare_network)
-kavumu_nexus = Waterpoint.create(name: "Kavumu", waterpoint_type: "Nexus", address: "Kavumu Cell, Mageragere Sector", kiosk: true, network: kavumu_network)
-kavumu_node = Waterpoint.create(name: "Kavumu", waterpoint_type: "Node", address: "Kavumu Cell, Mageragere Sector", kiosk: true, network: kavumu_network)
-karukoro_nexus = Waterpoint.create(name: "Karukoro", waterpoint_type: "Nexus", address: "Karukoro Village, Nyamirambo Sector", kiosk: true, network: karukoro_network)
-kanyinya_nexus = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Nexus", address: "Nzove Cell, Kanyinya Sector", kiosk: true, network: kanyinya_network)
-kanyinya_standpipe = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Standpipe", address: "Nzove Cell, Kanyinya Sector", kiosk: false, network: kanyinya_network)
-nyarufunzo_nexus = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Nexus", address: "Nyarufunzo Village, Mageragere Sector", kiosk: true, network: nyarufunzo_network)
-nyarufunzo_node = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Node", address: "Nyarufunzo Village, Mageragere Sector", kiosk: true, network: nyarufunzo_network)
-rusizi_nexus = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nexus", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: true, network: rusizi_network)
-rusizi_node = Waterpoint.create(name: "Rusizi", waterpoint_type: "Node", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: true, network: rusizi_network)
-rusizi_nano = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nano", address: "Rusizi Cell, Cyangugu, Ruanda", kiosk: false, network: rusizi_network)
+rwintare_nexus = Waterpoint.create(name: "Rwintare", waterpoint_type: "Nexus", address: "157 KN 2 Ave, Kigali, Ruanda", kiosk: true, network: rwintare_network)
+rwintare_node = Waterpoint.create(name: "Rwintare", waterpoint_type: "Node", address: "157 KN 2 Ave, Kigali, Ruanda", kiosk: true, network: rwintare_network)
+kavumu_nexus = Waterpoint.create(name: "Kavumu", waterpoint_type: "Nexus", address: "KK 329 St, Kigali, Ruanda", kiosk: true, network: kavumu_network)
+kavumu_node = Waterpoint.create(name: "Kavumu", waterpoint_type: "Node", address: "KK 329 St, Kigali, Ruanda", kiosk: true, network: kavumu_network)
+karukoro_nexus = Waterpoint.create(name: "Karukoro", waterpoint_type: "Nexus", address: "KG 5 Ave, Kigali, Ruanda", kiosk: true, network: karukoro_network)
+kanyinya_nexus = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Nexus", address: "19 KG 573 St, Kigali, Ruanda", kiosk: true, network: kanyinya_network)
+kanyinya_standpipe = Waterpoint.create(name: "Kanyinya", waterpoint_type: "Standpipe", address: "19 KG 573 St, Kigali, Ruanda", kiosk: false, network: kanyinya_network)
+nyarufunzo_nexus = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Nexus", address: "KG 28 Ave, Kigali, Ruanda", kiosk: true, network: nyarufunzo_network)
+nyarufunzo_node = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Node", address: "KG 28 Ave, Kigali, Ruanda", kiosk: true, network: nyarufunzo_network)
+rusizi_nexus = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nexus", address: "131 KN 2 Ave, Kigali, Ruanda", kiosk: true, network: rusizi_network)
+rusizi_node = Waterpoint.create(name: "Rusizi", waterpoint_type: "Node", address: "131 KN 2 Ave, Kigali, Ruanda", kiosk: true, network: rusizi_network)
+rusizi_nano = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nano", address: "131 KN 2 Ave, Kigali, Ruanda", kiosk: false, network: rusizi_network)
 
 puts "Created Waterpoints"
 

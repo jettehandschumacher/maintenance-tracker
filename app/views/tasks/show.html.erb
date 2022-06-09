@@ -3,41 +3,65 @@
     <div class="flex-container">
 
       <div class="info">
-      <h1> MAINTENANCE TASK: <%= @task.id %></h1>
-      <h2>Technician: <%= technician.name %></h2>
-      <%= if @complete_task == true
-       "Complete" <i class="fa-solid fa-circle" style="color:green;"></i>
-     else
-       "Incomplete" <i class="fa-solid fa-circle" style="color:red;"> </i>
-     end %>
+      <div class="top-info">
+        <div>
+          <h1> MAINTENANCE TASK ID <%= @task.id %></h1>
+          <h2>Technician: <strong><%= @task.technician.first_name.upcase %> <%= @task.technician.last_name.upcase %></strong></h2>
+         <div class="status"> <%= if @complete_task
+          '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
+          else
+          '<i class="fa-solid fa-circle" style="color: red;"></i> Incomplete'.html_safe
+          end %>
+        </div>
+        </div>
 
-     <div class="details">
-     <p>DETAILS</p>
-     </div>
+          <div class="date">
+            <div class="start">
+              <p>Start date</p>
+              <%= @task.start_date %>
+            </div>
 
-     <div class="start">
-     <p>Start date</p>
-     <%= @task.start_date %>
-     </div>
-
-     <div class="end">
-     <p>End date</p>
-     <%= @task.end_date %>
-     </div>
+            <div class="end">
+              <p>End date</p>
+              <%= @task.end_date %>
+            </div>
+          </div>
 
       </div>
+
+        <div class="details">
+          <p>DETAILS</p>
+          <p> <%= @task.extra_info %></p>
+        </div>
+
+
 
       <div class="address">
       <h3>SITE ADDRESS</h3>
       <ul>
-      <li>Network: <%= @network.name %></li>
-      <li>Waterpoint: <%= @waterpoint.waterpoint_type %></li>
-      <li>Address: <%= @network.address %></li>
+      <li>Network: <%= @task.network.name %></li>
+      <li>Waterpoint: <%= @task.waterpoint.waterpoint_type %></li>
+      <li>Address: <%= @task.network.address %></li>
       </ul>
+      <div class="networks-index flex-grow-1">
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
+      </div>
       </div>
 
       <div class="equipment">
       <h4>EQUIPMENT INFO</h4>
+      <p> Installed equipment: <%= @task.equipment.name %></p>
+      <div class="comments">
+      <p>COMMENTS</p>
+       <% @task.comments.each do |comment| %>
+        <p><%= comment.content %></p>
+        <p><%= comment.created_at %></p>
+       <% end %>
+      </div>
       </div>
     </div>
 
