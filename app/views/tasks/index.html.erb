@@ -1,3 +1,15 @@
 <div class="d-flex">
   <%= render "shared/sidebar" %>
+    <div class="tasks-index flex-grow-1">
+      <div class="all-tasks">
+        <% @tasks.each do |task| %>
+          <div class="single-task">
+            <li> <%= task.service.name %> </li>
+            <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
+            <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
+            <li> <%= task.network.name %> </li>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </div>

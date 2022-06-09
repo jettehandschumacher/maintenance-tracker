@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save!
-      redirect_to task_path(@task)
+      redirect_to tasks_path(@tasks)
     else
       render :new, :unprocessable_entity
     end
@@ -44,6 +44,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:stard_date, :end_date, :extra_info, :service, :technician)
+    params.require(:task).permit(:stard_date, :end_date, :extra_info, :service, :technician, :netwrok, :waterpoint, :equipment)
   end
 end
