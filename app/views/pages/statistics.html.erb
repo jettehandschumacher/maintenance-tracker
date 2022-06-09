@@ -1,5 +1,6 @@
 <div class="d-flex">
   <%= render "shared/sidebar" %>
     <div class="pages-content flex-grow-1">
+    <%= pie_chart Task.group(:complete_task).count %>
     </div>
 </div>

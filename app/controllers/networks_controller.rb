@@ -7,6 +7,9 @@ class NetworksController < ApplicationController
         lng: network.longitude
       }
     end
+
+    @waterpoints = Waterpoint.all
+    @tasks = Task.all
   end
 
   def show
