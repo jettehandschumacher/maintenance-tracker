@@ -2,11 +2,22 @@
   <%= render "shared/sidebar" %>
     <div class="networks-index flex-grow-1">
       <div class="all-networks">
+        <div class="network-info-header">
+          <li>NETWORK</li>
+          <li>ADDRESS</li>
+          <li>WATERPOINTS</li>
+          <li>COMPLETE TASKS</li>
+        </div>
         <% @networks.each do |network| %>
-          <div class="single-task">
-            <li> <%= network.name %> </li>
-            <li> <%= network.address%></li>
-          </div>
+          <%= link_to network_path(network), class:"network-link" do %>
+            <div class="single-network">
+              <li> <%= network.name %> </li>
+              <li> <%= network.address%></li>
+              <li><%= network.waterpoints.map(&:waterpoint_type).join(", ") %></li>
+              <li><%= network.complete_tasks %> /
+              <%= network.tasks.count %></li>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -28,5 +28,17 @@
   list-style: none;
   padding-left: 0;
   text-align: center;
+}
 
+.task-button {
+  background-color: blue;
+  border-radius: 2px;
+  text-decoration: none;
+  color: white;
+}
+
+.button-div {
+  height: auto;
+  text-align: center;
+  padding-top: 24px;
 }
