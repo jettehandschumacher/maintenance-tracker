@@ -14,6 +14,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.network = Waterpoint.find(task_params[:waterpoint_id]).network
+    @task.manager = current_user
     if @task.save!
       redirect_to tasks_path(@tasks)
     else
@@ -44,6 +46,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:stard_date, :end_date, :extra_info, :service, :technician, :netwrok, :waterpoint, :equipment)
+    params.require(:task).permit(:start_date, :end_date, :extra_info, :service_id, :technician_id, :waterpoint_id, :equipment_id)
   end
 end

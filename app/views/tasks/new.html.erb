@@ -3,11 +3,10 @@
     <%= f.input :start_date %>
     <%= f.input :end_date %>
     <%= f.input :extra_info %>
-    <%= f.association :technician, label_method: :first_name %>
+    <%= f.association :technician, :label_method => lambda { |technician| "#{technician.first_name.capitalize} #{technician.last_name.capitalize}" } %>
     <%= f.association :service %>
     <%= f.association :equipment%>
-    <%= f.association :network%>
-    <%= f.association :waterpoint, label_method: :waterpoint_type %>
+    <%= f.association :waterpoint, :label_method => lambda { |waterpoint| "#{waterpoint.waterpoint_type} at #{waterpoint.network.name}" } %>
     <%= f.button :submit %>
   <% end %>
 </div>
