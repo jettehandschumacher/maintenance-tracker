@@ -15,5 +15,14 @@
 .name-and-role {
   padding-right: 32px;
   padding-left: 24px;
-  border-left: solid;
+  border-left: 1px solid grey;
+}
+
+.name-div {
+  color: grey;
+}
+
+.role-div {
+  color: #20603D;
+  font-weight: 500;
 }
