@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def statistics
-    @tasks = Task.all
-    @waterpoints = Waterpoint.all
-    @networks = Network.all
+  end
+
+  def presentation
   end
 end

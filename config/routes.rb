@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :networks, only: %i[index show]
   get "statistics", to: "pages#statistics", as: "statistics"
+  get "presentation", to: "pages#presentation", as: "presentation"
 end
