@@ -28,6 +28,10 @@
   list-style: none;
   padding-left: 0;
   text-align: center;
+  a:hover {
+    color: blue;
+    font-weight: 500;
+  }
 }
 .task-btn {
   text-align: center;
