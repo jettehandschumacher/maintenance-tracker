@@ -16,7 +16,7 @@
               <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
               <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
               <li> <%= task.network.name %> </li>
-              <li> <%= if @complete_task
+              <li> <%= if task.complete_task
               '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
               else
               '<i class="fa-solid fa-circle" style="color: red;"></i> Incomplete'.html_safe
