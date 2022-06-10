@@ -4,7 +4,7 @@
   color: grey;
   margin-top: -6px;
  }
- padding: 24px 62px 24px 32px;
+ padding: 14px 62px 24px 32px;
  h2 {
    font-size: 16px;
    color: #20603D;
@@ -111,25 +111,18 @@
   font-size: 16px;
   color: grey;
   }
-  p {
-  font-size: 16px;
-   color: #20603D;
-   margin-top: 10px;
-   margin-bottom: 10px;
-  }
 }
 
 hr {
-  margin-top: 50px;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-top: 30px;
   color: lightgray;
 
 }
 
 .comments {
   padding: 16px;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 30px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -137,4 +130,9 @@ hr {
   font-size: 16px;
   color: grey;
   }
+}
+
+.edit-btn {
+  text-align: right;
+  padding-top: 48px;
 }

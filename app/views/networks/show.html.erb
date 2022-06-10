@@ -1,14 +1,47 @@
 
-
-
-
 <div class="d-flex">
   <%= render "shared/sidebar" %>
-    <div class="networks-index flex-grow-1">
-        <div style="width: 100%; height: 600px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="networks-info-index flex-grow-1">
+      <div class="flex-container flex-grow-1">
+
+        <div class="info-network flex-grow-1">
+          <div class="top-info-network">
+          <h1> NETWORK: <%= @network.name.upcase %></h1>
+          <h2>WATERPOINTS:</h2>
+          <h3> LAST MAINTENANCE CHECK: <%= @network.tasks.last %></h3>
+          </div>
+
+            <div class="equipment-header"></div>
+
+            </ul>
+            <div class="equipmemnt-installed">
+            <h2>EQUIPMENT INSTALLED</h2>
+            <ul>
+            <li></li>
+            </ul>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div style="width: 100%; height: 600px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

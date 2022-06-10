@@ -62,7 +62,9 @@
 
       <div class="equipment">
       <h4>EQUIPMENT INFO</h4>
-      <p><h2>Installed equipment: <strong><%= @task.equipment.name %></strong></h2></p>
+      <h2>Installed equipment: <strong><%= @task.equipment.name %></strong></h2>
+      </div>
+
       <div class="comments">
       <p>COMMENTS</p>
        <% @task.comments.each do |comment| %>
@@ -70,8 +72,12 @@
         <p><%= comment.created_at %></p>
        <% end %>
       </div>
-      </div>
+      <div class="edit-btn">
+      <%= link_to "EDIT A TASK", new_task_path(@task), class:"btn btn-primary" %>
     </div>
+    </div>
+
+
 
 
 </div>
