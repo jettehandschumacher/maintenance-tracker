@@ -13,7 +13,7 @@
           <li>DUE DATE</li>
           <li>NETWORK</li>
         </div>
-        <% @tasks.first(5).each do |task| %>
+        <% @tasks.last(5).each do |task| %>
           <div class="task-details">
             <li> <%= task.service.name %> </li>
             <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
