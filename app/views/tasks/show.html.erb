@@ -8,7 +8,7 @@
           <h1> MAINTENANCE TASK ID <%= @task.id %></h1>
           <h2>Technician: <strong><%= @task.technician.first_name.upcase %> <%= @task.technician.last_name.upcase %></strong></h2>
           <h2>Assigned by: <strong><%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></strong></h2>
-         <div class="status"> <%= if @complete_task
+         <div class="status"> <%= if @task.complete_task
           '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
           else
           '<i class="fa-solid fa-circle" style="color: red;"></i> Incomplete'.html_safe
