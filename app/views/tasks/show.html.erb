@@ -1,12 +1,13 @@
 <div class="d-flex">
   <%= render "shared/sidebar" %>
-    <div class="flex-container">
+    <div class="flex-container flex-grow-1">
 
-      <div class="info">
+      <div class="info flex-grow-1">
       <div class="top-info">
         <div>
           <h1> MAINTENANCE TASK ID <%= @task.id %></h1>
           <h2>Technician: <strong><%= @task.technician.first_name.upcase %> <%= @task.technician.last_name.upcase %></strong></h2>
+          <h2>Assigned by: <strong><%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></strong></h2>
          <div class="status"> <%= if @complete_task
           '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
           else
@@ -17,13 +18,13 @@
 
           <div class="date">
             <div class="start">
-              <p>Start date</p>
-              <%= @task.start_date %>
+              <p><strong>Start date</strong></p>
+              <div class="time"><%= @task.start_date.strftime("%d/%m/%Y") %></div>
             </div>
 
             <div class="end">
-              <p>End date</p>
-              <%= @task.end_date %>
+              <p><strong>End date</strong></p>
+              <div class="time"><%= @task.end_date.strftime("%d/%m/%Y") %></div>
             </div>
           </div>
 
@@ -34,27 +35,34 @@
           <p> <%= @task.extra_info %></p>
         </div>
 
+<hr>
 
 
       <div class="address">
-      <h3>SITE ADDRESS</h3>
-      <ul>
-      <li>Network: <%= @task.network.name %></li>
-      <li>Waterpoint: <%= @task.waterpoint.waterpoint_type %></li>
-      <li>Address: <%= @task.network.address %></li>
-      </ul>
-      <div class="networks-index flex-grow-1">
-        <div style="width: 100%; height: 600px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-       </div>
+
+        <div class="address-info">
+          <h3>SITE ADDRESS</h3>
+          <ul>
+            <li><h2>Network: <strong><%= @task.network.name %></strong></h2></li>
+            <li><h2>Waterpoint: <strong><%= @task.waterpoint.waterpoint_type %></strong></h2></li>
+            <li><h2>Address: <strong><%= @task.network.address %></strong></h2></li>
+            <li><h2>Manager: <strong><%= @task.manager.first_name.capitalize %></strong> <strong><%= @task.manager.last_name.capitalize %></strong></h2></li>
+          </ul>
+        </div>
+        <div class="flex-grow-1 d-flex justify-content-end">
+          <div style="width: 80%; height: 200px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
       </div>
-      </div>
+
+      <hr>
 
       <div class="equipment">
       <h4>EQUIPMENT INFO</h4>
-      <p> Installed equipment: <%= @task.equipment.name %></p>
+      <p><h2>Installed equipment: <strong><%= @task.equipment.name %></strong></h2></p>
       <div class="comments">
       <p>COMMENTS</p>
        <% @task.comments.each do |comment| %>
