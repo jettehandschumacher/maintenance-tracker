@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for @task do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :extra_info %>
+    <%= f.association :technician, :label_method => lambda { |technician| "#{technician.first_name.capitalize} #{technician.last_name.capitalize}" } %>
+    <%= f.association :service %>
+    <%= f.association :equipment%>
+    <%= f.association :waterpoint, :label_method => lambda { |waterpoint| "#{waterpoint.waterpoint_type} at #{waterpoint.network.name}" } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

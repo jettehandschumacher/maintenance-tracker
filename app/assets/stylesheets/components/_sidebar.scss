@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  max-width: 200px;
+  width: 200px;
   background-color: white;
   border: solid 1px rgba(228,201,160,.2);
   margin: 0px;
@@ -20,7 +20,7 @@
 }
 
 .ul-items {
-  max-height: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -29,16 +29,7 @@
   padding-left: 0;
   text-align: center;
 }
-
-.task-button {
-  background-color: blue;
-  border-radius: 2px;
-  text-decoration: none;
-  color: white;
-}
-
-.button-div {
-  height: auto;
+.task-btn {
   text-align: center;
-  padding-top: 24px;
+  padding-top: 48px;
 }
