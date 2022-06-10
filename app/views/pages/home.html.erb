@@ -5,7 +5,7 @@
       <div class="tasks">
         <div class="board-info">
           <li><%= "TASKS FOR TODAY" %></li>
-          <li><%= link_to "See All", tasks_path(@tasks) %></li>
+          <li><%= link_to "See All Tasks", tasks_path(@tasks) %></li>
         </div>
         <div class="tasks-info">
           <li>TASK NAME</li>
@@ -23,11 +23,12 @@
         <% end %>
       </div>
       <div class="networks">
-        <div class="network-chart-info" style="text-align: center;" >
-          <%= "CHART INFO" %>
+        <div class="network-info">
+          <li><%= "NETWORKS" %></li>
+          <li><%= link_to "See All Networks", networks_path(@networks) %></li>
         </div>
-        <div class="network-chart" style="margin: 24px;" >
-          <%= line_chart Task.group_by_day(:start_date).count %>
+        <div class="network-chart">
+          <%= pie_chart Network.group(:name).count %>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for @task do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, as: :datetime, html5: true%>
+    <%= f.input :end_date, as: :datetime, html5: true %>
     <%= f.input :extra_info %>
     <%= f.association :technician, :label_method => lambda { |technician| "#{technician.first_name.capitalize} #{technician.last_name.capitalize}" } %>
     <%= f.association :service %>

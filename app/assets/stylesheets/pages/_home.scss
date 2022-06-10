@@ -30,6 +30,9 @@
         a {
         text-decoration: none;
         color: rgb(32,96,61);
+          &:hover {
+          color: blue;
+          }
         }
     }
     .tasks-info {
@@ -55,6 +58,24 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .network-info {
+    min-height: 93px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 48px;
+    font-size: 16px;
+    align-items: center;
+    color: rgb(138,138,138);
+    a {
+      text-decoration: none;
+      color: rgb(32,96,61);
+      &:hover {
+        color: blue;
+      }
+    }
+  }
 }
 
 .stats {
