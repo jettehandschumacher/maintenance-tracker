@@ -28,7 +28,9 @@
           <li><%= link_to "See All Networks", networks_path(@networks) %></li>
         </div>
         <div class="network-chart">
-          <%= pie_chart Network.group(:name).count %>
+
+          <%= pie_chart Network.joins(:tasks).joins(:services).group('services.name').count%>
+
         </div>
       </div>
     </div>

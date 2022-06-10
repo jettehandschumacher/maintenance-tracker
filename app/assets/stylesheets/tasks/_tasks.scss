@@ -10,7 +10,7 @@
 
 .task-info-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   height: 93px;
   list-style: none;
   align-items: center;
@@ -20,7 +20,7 @@
 
 .single-task {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   height: 65px;
   list-style: none;
   align-items: center;
