@@ -72,14 +72,19 @@
         <p><%= comment.created_at %></p>
        <% end %>
       </div>
-      <div class="bottom-div">
-        <%= simple_form_for @task do |f| %>
-          <%= f.input :complete_task, as: :boolean, checked_value: true, unchecked_value: false %>
-          <%= f.button :submit, 'COMPLETE THE TASK!', class: "btn btn-primary" %>
+      <div class="comment-new">
+        <%= simple_form_for [@task, @comment] do |f| %>
+        <%= f.input :content %>
+        <%= f.button :submit, 'POST A MESSAGE', class: "btn btn-primary" %>
         <% end %>
       </div>
+      <div class="bottom-div">
+            <%= link_to "COMPLETE THE TASK", completed_task_path(@task), class: "btn btn-primary" %>
+      </div>
       <div class="edit-btn">
+        <% if current_user.technician == false %>
         <%= link_to "EDIT A TASK", edit_task_path(@task), class:"btn btn-primary" %>
+        <% end %>
       </div>
     </div>
 </div>

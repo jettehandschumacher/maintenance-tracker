@@ -5,7 +5,7 @@ ruby "3.0.3"
 
 gem "chartkick"
 gem "groupdate"
-gem "dotenv-rails", groups: [:development, :test]
+gem "cloudinary"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
