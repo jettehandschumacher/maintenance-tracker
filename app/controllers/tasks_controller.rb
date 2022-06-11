@@ -6,7 +6,8 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    @markers = [{lat: @task.network.latitude, lng: @task.network.longitude }]
+    @comment = Comment.new
+    @markers = [{ lat: @task.network.latitude, lng: @task.network.longitude }]
   end
 
   def new
@@ -42,6 +43,12 @@ class TasksController < ApplicationController
     @task.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def completed
+    @task = Task.find(params[:id])
+    @task.update_attribute(:complete_task, true)
+    redirect_to tasks_path(@tasks)
   end
 
   private
