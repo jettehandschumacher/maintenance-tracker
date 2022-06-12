@@ -4,20 +4,20 @@
     <div class="tasks-networks">
       <div class="tasks">
         <div class="board-info">
-          <li><%= "TASKS FOR TODAY" %></li>
+          <li><%= "RECENT TASKS" %></li>
           <li><%= link_to "See All Tasks", tasks_path(@tasks) %></li>
         </div>
         <div class="tasks-info">
           <li>TASK NAME</li>
           <li>TECHNICIAN</li>
-          <li>DUE DATE</li>
+          <li>CREATED</li>
           <li>NETWORK</li>
         </div>
-        <% @tasks.last(5).each do |task| %>
+        <% @tasks.last(5).reverse.each do |task| %>
           <div class="task-details">
             <li> <%= task.service.name %> </li>
             <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
-            <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
+            <li> <%= time_ago_in_words(task.created_at) %> ago </li>
             <li> <%= task.network.name %> </li>
           </div>
         <% end %>

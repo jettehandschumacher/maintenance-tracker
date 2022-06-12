@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :tasks do
     get :completed, on: :member
-    resources :comments, only: %i[new create edit]
+    resources :comments, except: :index
   end
   resources :networks, only: %i[index show]
   get "statistics", to: "pages#statistics", as: "statistics"
