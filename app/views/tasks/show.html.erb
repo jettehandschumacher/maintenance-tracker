@@ -66,21 +66,25 @@
       <h4>EQUIPMENT INFO</h4>
       <h2>Installed equipment: <strong><%= @task.equipment.name %></strong></h2>
       </div>
-
-      <div class="comments">
-        <p>COMMENTS</p>
-        <% @task.comments.each do |comment| %>
-        <p><%= comment.content %></p>
-        <p><%= time_ago_in_words(comment.created_at)%> ago</p>
-       <% end %>
-      </div>
+      <% if @task.comments.exists? %>
+        <div class="comments">
+          <p>COMMENTS</p>
+          <% @task.comments.each do |comment| %>
+          <p><%= comment.content %></p>
+          <p><%= time_ago_in_words(comment.created_at)%> ago</p>
+         <% end %>
+        </div>
+      <% end %>
       <div class="comment-new">
-        <%= simple_form_for [@task, @comment] do |f| %>
-        <%= f.input :content %>
-        <%= f.button :submit, 'POST A MESSAGE', class: "btn btn-primary" %>
+        <% if @task.comments.count < 1 %>
+          <%= simple_form_for [@task, @comment] do |f| %>
+          <%= f.input :content, label: 'Leave your comment' %>
+          <%= f.input :photos, label: 'Add your pictures', as: :file, input_html: { multiple: true } %>
+          <%= f.button :submit, 'POST A MESSAGE', class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
-      <% if @task.complete_task == false %>
+      <% if @task.complete_task == false && @task.comments.count >= 1 %>
       <%= link_to "COMPLETE THE TASK", completed_task_path(@task), class: "btn btn-primary" %>
       <% end %>
       <div class="edit-btn">
