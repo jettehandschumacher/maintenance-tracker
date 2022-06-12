@@ -4,17 +4,17 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
     @task = Task.find(params[:task_id])
-    @comment = Task.comment.new
-    if @comment.save!
-      redirect_to task_path(@task)
+    @comment = Comment.create(comment_params)
+    @comment.user_id = current_user.id
+    @comment.task_id = @task.id
+    if @comment.save
+      redirect_to task_path(@task), notice: 'Comment has been posted.'
     else
       render :new, :unprocessable_entity
     end
