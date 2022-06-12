@@ -9,21 +9,22 @@
           <li>NETWORK</li>
           <li>STATUS</li>
         </div>
-          <% @tasks.each do |task| %>
-            <%= link_to task_path(task), class:"task-link" do %>
-            <div class="single-task">
-              <li> <%= task.service.name %> </li>
-              <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
-              <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
-              <li> <%= task.network.name %> </li>
-              <li> <%= if task.complete_task
-              '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
-              else
-              '<i class="fa-solid fa-circle" style="color: red;"></i> Incomplete'.html_safe
-              end %></li>
-            </div>
+            <% @tasks.each do |task| %>
+              <%= link_to task_path(task), class:"task-link" do %>
+              <div class="single-task">
+                <li> <%= task.service.name %> </li>
+                <li> <%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
+                <li> <%= task.end_date.strftime("%d/%m/%Y") %> </li>
+                <li> <%= task.network.name %> </li>
+                <li> <%= if task.complete_task
+                '<i class="fa-solid fa-circle"style="color: green;"></i> Complete'.html_safe
+                else
+                '<i class="fa-solid fa-circle" style="color: red;"></i> Incomplete'.html_safe
+                end %></li>
+              </div>
+              <% end %>
             <% end %>
-          <% end %>
+
       </div>
     </div>
 </div>
