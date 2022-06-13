@@ -1,5 +1,7 @@
 <div class="d-flex">
+  <% if current_user.technician == false %>
   <%= render "shared/sidebar" %>
+  <% end %>
     <div class="tasks-index flex-grow-1">
       <div class="all-tasks">
         <div class="task-info-header">
@@ -9,7 +11,7 @@
           <li>NETWORK</li>
           <li>STATUS</li>
         </div>
-            <% @tasks.each do |task| %>
+            <% @tasks.reverse.each do |task| %>
               <%= link_to task_path(task), class:"task-link" do %>
               <div class="single-task">
                 <li> <%= task.service.name %> </li>
@@ -24,7 +26,6 @@
               </div>
               <% end %>
             <% end %>
-
       </div>
     </div>
 </div>

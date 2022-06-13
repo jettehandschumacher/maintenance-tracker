@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
   def index
-
-    @tasks = Task.all
+    if current_user.technician == false
+      @tasks = Task.all
+    else
+      @tasks = Task.where(technician: current_user)
+    end
   end
 
   def show
