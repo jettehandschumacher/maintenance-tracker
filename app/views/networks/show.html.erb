@@ -1,45 +1,112 @@
-
 <div class="d-flex">
   <%= render "shared/sidebar" %>
-    <div class="networks-info-index flex-grow-1">
-      <div class="flex-container flex-grow-1">
 
-        <div class="info-network flex-grow-1">
-          <div class="top-info-network">
-          <h1> NETWORK: <%= @network.name.upcase %></h1>
-          <h2>WATERPOINTS:</h2>
-          <h3> LAST MAINTENANCE CHECK: <%= @network.tasks.last %></h3>
-          </div>
 
-            <div class="installed-equipment-info">
-              <div class="equipment-header">
-                <h2>COMPLETED TASKS</h2>
-                  <li>TASK NAME</li>
-                  <li></li>
-              </div>
+      <div class="info-network flex-grow-1">
+
+        <div class="network-show felx-grow-1">
+          <div class="top-info">
+
+            <div>
+              <h1> NETWORK <%= @network.name.upcase %> </h1>
+
             </div>
+                  <div class="task-complete">
+                      <div class="network-info">
+                        <h2>NO. OF TASKS</h2>
+                      </div>
+                        <div class="task-chart">
 
+                        </div>
+                      </div>
+                    </div>
 
+                    <div class="maintenance-no">
+                      <div class="network-info-maintenance">
+                      <h2>NO. OF TASKS COMPLETED/ INCOMPLETED</h2>
+                      </div>
+                    </div>
+        </div>
 
+<hr>
 
-
-
-
-
-
-
-
-
-
-
-            <div style="width: 100%; height: 600px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            </div>
+        <div class="flex-grow-1">
+        <div class="header">
+        <h4>NETWORK LOCATION</h4>
+        </div>
+          <div style="width: 100%; height: 230px; margin-top: 30px; border-radius: 10px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
       </div>
-    </div>
-  </div>
+
+
+        <div class="equipment-info flex-grow-1">
+          <div class="equipment">
+          </div>
+              <div class="equipments-networks">
+                <div class="installed-equipments">
+                  <div class="board-info">
+                    <li>Installed equipment at network <%= @network.name.upcase %> </li>
+                  </div>
+                  <div class="equipment-info">
+                    <li>EQUIPMENT INSTALLED</li>
+                    <li>DATE OF INSTALLATION </li>
+                    <li>WARRANTY</li>
+                    <li>NO OF TASKS</li>
+                    <li>LAST MAINTENANCE</li>
+                    <li>NEXT MAINTENANCE</li>
+                    </div>
+                    <% Network.all.last(5).each do |task| %>
+                      <div class="equipment-details">
+                        <li>  </li>
+                        <li> </li>
+                        <li>  </li>
+                        <li> </li>
+                      </div>
+                    <% end %>
+                </div>
+              </div>
+          </div>
+
+
+
+          </div>
+          </div>
+
+
+          <div class="next-task-info flex-grow-1;">
+              <div class="equipments-networks">
+                <div class="next-maintenance-task">
+                  <div class="board-info flex-grow-1">
+                    <li>NEXT MAINTENANCE TASK AT <%= @network.name.upcase %><div class="task-button">
+                        <div class="create-task-btn">
+                          <%= link_to "CREATE A TASK", new_task_path(@task), class:"btn btn-primary" %>
+                        </div></li>
+
+                  </div>
+                  <div class="task-info">
+                    <li>TASK NAME</li>
+                    <li>WATERPOINT </li>
+                    <li>EQUIPMENT/li>
+                    <li>DATE</li>
+                    <li>TECHNICIAN</li>
+                    <li>MANAGER</li>
+                    </div>
+                    <% Network.all.last(5).each do |task| %>
+                      <div class="equipment-details">
+
+                      </div>
+                    <% end %>
+
+                </div>
+
+              </div>
+              </div>
+              </div>
+
+
+      </div>
 </div>
