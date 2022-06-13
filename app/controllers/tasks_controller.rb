@@ -12,6 +12,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @technician = User.where(technician: true).all
   end
 
   def create
