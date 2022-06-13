@@ -25,6 +25,12 @@
   }
 }
 
+.network-top-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
 .top-info {
   display: flex;
   justify-content: space-between;

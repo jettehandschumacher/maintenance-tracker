@@ -8,6 +8,7 @@
 
 Comment.destroy_all
 Task.destroy_all
+WaterpointEquipment.destroy_all
 Waterpoint.destroy_all
 Network.destroy_all
 Equipment.destroy_all
@@ -85,6 +86,14 @@ rusizi_node = Waterpoint.create(name: "Rusizi", waterpoint_type: "Node", address
 rusizi_nano = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nano", address: "131 KN 2 Ave, Kigali, Ruanda", kiosk: false, network: rusizi_network)
 
 puts "Created Waterpoints"
+
+WaterpointEquipment.create!(equipment: pressure_tank, waterpoint: rwintare_nexus)
+WaterpointEquipment.create!(equipment: klorman, waterpoint: rwintare_nexus)
+WaterpointEquipment.create!(equipment: tank_5m3, waterpoint: rwintare_nexus)
+WaterpointEquipment.create!(equipment: tank_10m3, waterpoint: rwintare_nexus)
+WaterpointEquipment.create!(equipment: solar_pannels, waterpoint: rwintare_nexus)
+
+puts "Created Waterpoint Equipments"
 
 painting = Service.create(name: "Painting", frequency: 12)
 maintenance = Service.create(name: "Maintenance Check", frequency: 6)
