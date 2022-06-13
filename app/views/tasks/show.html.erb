@@ -72,6 +72,9 @@
           <% @task.comments.each do |comment| %>
           <p><%= comment.content %></p>
           <p><%= time_ago_in_words(comment.created_at)%> ago</p>
+            <% comment.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 150, width: 250, crop: :fill %>
+            <% end %>
          <% end %>
         </div>
       <% end %>
