@@ -74,7 +74,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 9px rgba(0,0,0,0.2);
-  border: 1px solid #0d6efd;
+  border: 1px solid #0a68f2;
   .network-info {
     height: 30pxpx;
     display: flex;
@@ -178,7 +178,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: grid;
-  grid-template-rows: 0fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr auto;
   padding-bottom: 20px;
     .board-info {
       display: flex;

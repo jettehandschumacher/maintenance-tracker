@@ -20,13 +20,13 @@
 
           <div class="date">
             <div class="start">
-              <p><strong>Start date</strong></p>
-              <div class="time"><%= @task.start_date.strftime("%d/%m/%Y") %></div>
+              <p>Start date:</p>
+              <div class="time"><%= @task.start_date.strftime("%d.%m.%Y") %></div>
             </div>
 
             <div class="end">
-              <p><strong>End date</strong></p>
-              <div class="time"><%= @task.end_date.strftime("%d/%m/%Y") %></div>
+              <p>End date:</p>
+              <div class="time"><%= @task.end_date.strftime("%d.%m.%Y") %></div>
             </div>
           </div>
 
@@ -45,10 +45,12 @@
         <div class="address-info">
           <h3>SITE ADDRESS</h3>
           <ul>
-            <li><h2>Network: <strong><%= @task.network.name %></strong></h2></li>
-            <li><h2>Waterpoint: <strong><%= @task.waterpoint.waterpoint_type %></strong></h2></li>
-            <li><h2>Address: <strong><%= @task.network.address %></strong></h2></li>
-            <li><h2>Manager: <strong><%= @task.manager.first_name.capitalize %></strong> <strong><%= @task.manager.last_name.capitalize %></strong></h2></li>
+            <div class="address-details">
+            <li>Network: <%= @task.network.name.upcase %></li>
+            <li>Waterpoint: <%= @task.waterpoint.waterpoint_type.upcase %></li>
+            <li>Address: <%= @task.network.address.upcase %></li>
+            <li>Manager: <%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></li>
+            </div>
           </ul>
         </div>
         <div class="flex-grow-1 d-flex justify-content-end">
@@ -64,11 +66,11 @@
 
       <div class="equipment">
       <h4>EQUIPMENT INFO</h4>
-      <h2>Installed equipment: <strong><%= @task.equipment.name %></strong></h2>
+      <p>Equipment to be maintained: <strong><%= @task.equipment.name %></strong></p>
       </div>
       <% if @task.comments.exists? %>
         <div class="comments">
-          <p>COMMENTS</p>
+          <h4>COMMENTS</h4>
           <% @task.comments.each do |comment| %>
           <p><%= comment.content %></p>
           <p><%= time_ago_in_words(comment.created_at)%> ago</p>
