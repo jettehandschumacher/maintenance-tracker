@@ -11,8 +11,8 @@
         <div class="network-top-info">
           <div class="maintenance-no">
             <div class="network-info-maintenance">
-              <h5>No. of maintenance tasks:</h5>
-              <p> 28</p>
+              <h5>No. of equipment installed:</h5>
+              <p> 38</p>
             </div>
           </div>
           <div class="maintenance-no">
@@ -23,8 +23,8 @@
           </div>
           <div class="maintenance-no">
             <div class="network-info-maintenance">
-              <h5>Status complete tasks:</h5>
-              <p><strong><%= @network.complete_tasks %> / <%= @network.tasks.count %></strong></p>
+              <h5>Status completed tasks:</h5>
+              <p><%= @network.complete_tasks %>/<%= @network.tasks.count %></p>
             </div>
           </div>
         </div>
@@ -55,7 +55,17 @@
             </div>
             <% @network.waterpoints.each do |waterpoint| %>
               <% waterpoint.equipments.each do |equipment| %>
-                <p><%= equipment.name %></p>
+                <div class="equipment-details">
+
+                  <li><%= equipment.name %></li>
+                  <li><%= waterpoint.waterpoint_type %></li>
+                  <li class="<%= equipment.warranty_valid ? "valid" : "expired" %>"><%= equipment.warranty_valid ? "valid" : "expired" %></li>
+                  <% if equipment&.tasks&.last&.service %>
+                    <li><%= (equipment&.tasks&.last&.created_at + equipment&.tasks&.last&.service&.frequency.months).strftime("%d/%m/%Y") %></li>
+                  <% else %>
+                  <li>N/A</li>
+                  <% end %>
+                </div>
               <% end %>
             <% end %>
           </div>
@@ -79,9 +89,14 @@
             <li>TECHNICIAN</li>
             <li>MANAGER</li>
           </div>
-          <% @network.tasks.each do |task| %>
-            <div class="equipment-details">
+          <% @network.tasks.order(created_at: :desc).each do |task| %>
+            <div class="task-details">
             <li><%= task.service.name %></li>
+            <li><%= task.waterpoint.waterpoint_type %></li>
+            <li><%= task.equipment.name %></li>
+            <li><%= (task.created_at + task.service.frequency.months).strftime("%d/%m/%Y") %></li>
+            <li><%= task.technician.first_name.capitalize %> <%= task.technician.last_name.capitalize %></li>
+            <li><%= task.manager.first_name.capitalize %> <%= task.manager.last_name.capitalize %></li>
 
 
             </div>

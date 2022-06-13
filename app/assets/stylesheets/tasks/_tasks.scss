@@ -34,6 +34,7 @@
   align-items: center;
   text-align: center;
   border-bottom: solid 1px rgba(228,201,160,.2);
+  color: #5C5C5C;
 }
 
 .single-task {
@@ -43,6 +44,7 @@
   list-style: none;
   align-items: center;
   text-align: center;
+  color: #5C5C5C;
     &:hover {
     border: solid 1px blue;
     color: blue;
@@ -51,5 +53,5 @@
 
 .task-link {
   text-decoration: none;
-  color: black;
+  color: #5C5C5C;
   }
