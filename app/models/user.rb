@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :tasks
   has_many :comments
+
+  def tasks
+    return Task.where(manager: self).or(Task.where(technician: self))
+  end
 end
