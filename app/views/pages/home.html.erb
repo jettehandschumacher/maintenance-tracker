@@ -24,13 +24,13 @@
       </div>
       <div class="networks">
         <div class="network-info">
-          <li><%= "NETWORKS" %></li>
+          <li><%= "TASKS" %></li>
           <li><%= link_to "See All Networks", networks_path(@networks) %></li>
         </div>
         <div class="network-chart">
-
-          <%= pie_chart Network.joins(:tasks).joins(:services).group('services.name').count%>
-
+          <div class="pie-chart-home">
+          <%= pie_chart Task.group(:complete_task).count, colors: ["#F69E36", "#0D6EFD"], legend: true, width: "250px", height: "230px", donut: true, legend: "bottom"  %>
+          </div>
         </div>
       </div>
     </div>

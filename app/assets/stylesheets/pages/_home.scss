@@ -79,6 +79,11 @@
   }
   .network-chart {
     padding: 16px;
+    .pie-chart-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -87,4 +92,5 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 }

@@ -63,7 +63,7 @@
                   <% if equipment&.tasks&.last&.service %>
                     <li><%= (equipment&.tasks&.last&.created_at + equipment&.tasks&.last&.service&.frequency.months).strftime("%d/%m/%Y") %></li>
                   <% else %>
-                  <li>/</li>
+                  <li>N/A</li>
                   <% end %>
                 </div>
               <% end %>
