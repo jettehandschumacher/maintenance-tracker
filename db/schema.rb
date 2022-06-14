@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_13_120745) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_14_103317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_120745) do
     t.string "name"
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "service_equipments", force: :cascade do |t|
+    t.bigint "service_id", null: false
+    t.bigint "equipment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_id"], name: "index_service_equipments_on_equipment_id"
+    t.index ["service_id"], name: "index_service_equipments_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -137,6 +146,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_13_120745) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
+  add_foreign_key "service_equipments", "equipment"
+  add_foreign_key "service_equipments", "services"
   add_foreign_key "tasks", "equipment"
   add_foreign_key "tasks", "networks"
   add_foreign_key "tasks", "services"

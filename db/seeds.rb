@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+ServiceEquipment.destroy_all
 Comment.destroy_all
 Task.destroy_all
 WaterpointEquipment.destroy_all
@@ -149,3 +150,12 @@ puts "Created Tasks"
 comment_one = Comment.create(user: djibril, task: task_eight, content: "Muraho Christelle, ikibabaje nuko ntabashije kuzuza ibisigazwa byoroshya amazi - Mbabarira. Nzarangiza imirimo ejo.")
 
 puts "Create Comments"
+
+ServiceEquipment.create(equipment: filter_system, service: painting)
+ServiceEquipment.create(equipment: kiosk, service: painting)
+ServiceEquipment.create(equipment: grundfos_pump, service: maintenance)
+ServiceEquipment.create(equipment: flow_meter, service: maintenance)
+ServiceEquipment.create(equipment: totalizer, service: maintenance)
+ServiceEquipment.create(equipment: solar_pannels, service: maintenance)
+
+puts "Service Equipment"

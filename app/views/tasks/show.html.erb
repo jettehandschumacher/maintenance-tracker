@@ -99,3 +99,9 @@
       </div>
     </div>
 </div>
+
+
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@task.network.name} is on #{DEFAULT_META["pretty cool place"]}" %>
+<% content_for :meta_description, @task.waterpoint.waterpoint_type %>
+<% content_for :meta_image, cl_image_path(@task.photo.path) %>

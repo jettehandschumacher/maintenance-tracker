@@ -8,11 +8,9 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
-    label {
-      margin-left: 12px;
-    }
-    input {
-      margin-left: 12px;
+    .search-bar form {
+      display: flex;
+      flex-direction: row;
     }
 }
 

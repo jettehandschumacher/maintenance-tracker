@@ -3,20 +3,22 @@
   <%= render "shared/sidebar" %>
   <% end %>
     <div class="tasks-index flex-grow-1">
-      <div class="filter-bar">
-        <div class="btn-group">
-          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 12px;">
-            Sort by
-          </button>
-          <ul class="dropdown-menu">
-            <li data-action="click->tasks#sortByName">Task Name</li>
-            <li>Technician</li>
-            <li>Date Due</li>
-            <li>Network</li>
-          </ul>
+      <div class="filter-bar justify-content-between">
+        <div class="search-bar">
+          <%= form_tag tasks_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a Network"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
         </div>
-        <label for="complete">Hide Complete Tasks</label>
-        <input type="checkbox" data-action="click->tasks#hideComplete" name="complete">
+        <div>
+          <label for="complete">Hide Complete Tasks</label>
+          <input type="checkbox" data-action="click->tasks#hideComplete" name="complete">
+        </div>
+
       </div>
         <div class="all-tasks">
           <div class="task-info-header">
