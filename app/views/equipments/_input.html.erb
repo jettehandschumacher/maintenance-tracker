@@ -1,0 +1,9 @@
+<div class="mb-3 select required task_equipment">
+  <label class="form-label select required" for="task_equipment">Equipment <abbr title="required">*</abbr></label>
+  <select class="form-select select required" name="task[equipment_id]" id="task_equipment">
+    <option value="" label=" "></option>
+    <% equipments.each do |equipment| %>
+      <option value="<%= equipment.id %>"><%= equipment.name %></option>
+    <% end %>
+  </select>
+</div>

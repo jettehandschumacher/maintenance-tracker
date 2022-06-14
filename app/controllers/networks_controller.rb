@@ -14,6 +14,6 @@ class NetworksController < ApplicationController
 
   def show
     @network = Network.find(params[:id])
-    @markers = [{lat: @network.latitude, lng: @network.longitude }]
+    @markers = [{ lat: @network.latitude, lng: @network.longitude }]
   end
 end
