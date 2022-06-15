@@ -4,14 +4,14 @@
   <% end %>
     <div class="tasks-index flex-grow-1">
       <div class="filter-bar justify-content-between">
-        <div class="search-bar">
-          <%= form_tag tasks_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a Network"
-            %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+        <div class="search-bar" data-controller="search-technician" >
+          <%= form_with url: tasks_path, method: :get, html: {class:
+    "mb-4", data: {search_technician_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Type in technician name",
+                     value: params[:query],
+                     data: {search_technician_target: "input"} %>
           <% end %>
         </div>
         <div>
@@ -20,7 +20,7 @@
         </div>
 
       </div>
-        <div class="all-tasks">
+        <div class="all-tasks" data-search-tasks-target="list" >
           <div class="task-info-header">
             <li>TASK NAME</li>
             <li>TECHNICIAN</li>
