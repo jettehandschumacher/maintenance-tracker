@@ -46,10 +46,10 @@
           <h3>SITE ADDRESS</h3>
           <ul>
             <div class="address-details">
-            <li>Network: <%= @task.network.name.upcase %></li>
-            <li>Waterpoint: <%= @task.waterpoint.waterpoint_type.upcase %></li>
-            <li>Address: <%= @task.network.address.upcase %></li>
-            <li>Manager: <%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></li>
+            <li><strong>Network:</strong> <%= @task.network.name.upcase %></li>
+            <li><strong>Waterpoint:</strong> <%= @task.waterpoint.waterpoint_type.upcase %></li>
+            <li><strong>Address:</strong> <%= @task.network.address.upcase %></li>
+            <li><strong>Manager:</strong> <%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></li>
             </div>
           </ul>
         </div>
