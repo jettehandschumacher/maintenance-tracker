@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @tasks = Task.all
+    @networks = Network.all
   end
 
   def statistics

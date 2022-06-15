@@ -199,12 +199,57 @@ puts "Created Tasks"
 comment_one = Comment.create(user: djibril, task: task_eight, content: "Muraho Christelle, ikibabaje nuko ntabashije kuzuza ibisigazwa byoroshya amazi - Mbabarira. Nzarangiza imirimo ejo.")
 
 puts "Create Comments"
-
-ServiceEquipment.create(equipment: filter_system, service: painting)
+# Painting
 ServiceEquipment.create(equipment: kiosk, service: painting)
+# Maintenance
+ServiceEquipment.create(equipment: kiosk, service: maintenance)
 ServiceEquipment.create(equipment: grundfos_pump, service: maintenance)
-ServiceEquipment.create(equipment: flow_meter, service: maintenance)
-ServiceEquipment.create(equipment: totalizer, service: maintenance)
 ServiceEquipment.create(equipment: solar_pannels, service: maintenance)
+ServiceEquipment.create(equipment: generator, service: maintenance)
+ServiceEquipment.create(equipment: booster_pump, service: maintenance)
+# Cleaning
+ServiceEquipment.create(equipment: kiosk, service: cleaning)
+ServiceEquipment.create(equipment: solar_pannels, service: cleaning)
+ServiceEquipment.create(equipment: filter_system, service: cleaning)
+# Cartridge
+ServiceEquipment.create(equipment: filter_system, service: catridge)
+ServiceEquipment.create(equipment: gac_cto, service: catridge)
+ServiceEquipment.create(equipment: klorman, service: catridge)
+
+# Replacement
+ServiceEquipment.create(equipment: grundfos_pump, service: replacement)
+ServiceEquipment.create(equipment: solar_pannels, service: replacement)
+ServiceEquipment.create(equipment: softener, service: replacement)
+ServiceEquipment.create(equipment: generator, service: replacement)
+ServiceEquipment.create(equipment: booster_pump, service: replacement)
+
+# Resin
+ServiceEquipment.create(equipment: filter_system, service: resin)
+ServiceEquipment.create(equipment: gac_cto, service: resin)
+ServiceEquipment.create(equipment: klorman, service: resin)
+
+# General
+ServiceEquipment.create(equipment: kiosk, service: general)
+ServiceEquipment.create(equipment: generator, service: general)
 
 puts "Service Equipment"
+
+# tank_5m3 = Equipment.create!(name: "Tank 5m3", equipment_type: "Tank", warranty_valid: true)
+# tank_10m3 = Equipment.create!(name: "Tank 10m3", equipment_type: "Tank", warranty_valid: true)
+# electric_kit = Equipment.create!(name: "Electric kit", equipment_type: "Electrics", warranty_valid: true)
+# battereis = Equipment.create!(name: "Batteries", equipment_type: "Electrics", warranty_valid: true)
+# paid_meter = Equipment.create!(name: "Pre-Paid Meter", equipment_type: "Electrics", warranty_valid: false)
+# switch = Equipment.create!(name: "Pressure Switch", equipment_type: "Electrics", warranty_valid: false)
+# gauges = Equipment.create!(name: "Pressure gauges", equipment_type: "Meter", warranty_valid: false)
+# valves = Equipment.create!(name: "Ball Valves 40mm", equipment_type: "Electrics", warranty_valid: false)
+# dosatron = Equipment.create!(name: "Dosatron", equipment_type: "Pump", warranty_valid: false)
+# flow_meter = Equipment.create!(name: "Flow meter", equipment_type: "Meter", warranty_valid: false)
+# totalizer = Equipment.create!(name: "Totalizer", equipment_type: "Meter", warranty_valid: false)
+# controller = Equipment.create!(name: "Controller", equipment_type: "Electrics", warranty_valid: false)
+# cashpower = Equipment.create!(name: "CashPower", equipment_type: "Meter", warranty_valid: false)
+# uv_165W = Equipment.create!(name: "UV System 165W-140LPM", equipment_type: "Electrics", warranty_valid: false)
+# grundfos_submersible_pump = Equipment.create!(name: "Grundfos submersible pump", equipment_type: "Pump", warranty_valid: false)
+# aquasept = Equipment.create!(name: "Aquasept inline", equipment_type: "Water", warranty_valid: false)
+# sun_pump = Equipment.create!(name: "Sun pump", equipment_type: "Pump", warranty_valid: false)
+# pressure_tank = Equipment.create!(name: "Pressure tank manifold", equipment_type: "Tank", warranty_valid: false)
+# uv_55W = Equipment.create!(name: "UV System 55W-45LPM", equipment_type: "Electrics", warranty_valid: false)
