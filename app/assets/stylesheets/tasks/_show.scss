@@ -125,8 +125,8 @@
 }
 
 .address-info {
-  align-items: center;
-  padding: 20px 16px 20px 16px;
+
+  padding: 20px 16px 16px 16px;
 
   h3 {
   font-size: 12px;
@@ -137,6 +137,8 @@
    color: #5C5C5C;
    margin-top: 10px;
    margin-bottom: 10px;
+   list-style: none;
+   margin-left: -33px;
   }
 }
 
