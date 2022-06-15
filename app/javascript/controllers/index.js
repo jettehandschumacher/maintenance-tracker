@@ -7,11 +7,17 @@ import { application } from "./application"
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
-import ServiceEquipmentController from "./service_equipment_controller.js"
-application.register("service-equipment", ServiceEquipmentController)
-
 import MapController from "./map_controller.js"
 application.register("map", MapController)
+
+import SearchTasksController from "./search_tasks_controller.js"
+application.register("search-tasks", SearchTasksController)
+
+import SearchTechnicianController from "./search_technician_controller.js"
+application.register("search-technician", SearchTechnicianController)
+
+import ServiceEquipmentController from "./service_equipment_controller.js"
+application.register("service-equipment", ServiceEquipmentController)
 
 import TasksController from "./tasks_controller.js"
 application.register("tasks", TasksController)
