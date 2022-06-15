@@ -9,7 +9,7 @@
             "mb-4", data: {search_technician_target: "form"}} do |f| %>
             <%= f.text_field :query,
                      class: "form-control",
-                     placeholder: "Type in technician name",
+                     placeholder: "Find a Technician",
                      value: params[:query],
                      data: {search_technician_target: "input",
                             action: "keyup->search-technician#update keyup->tasks#checkCompletedHidden"
