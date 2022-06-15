@@ -3,11 +3,14 @@
   <%= render "shared/sidebar" %>
   <% end %>
     <div class="flex-container flex-grow-1">
-
       <div class="info flex-grow-1">
       <div class="top-info">
         <div>
-          <h1> MAINTENANCE TASK ID <%= @task.id %></h1>
+          <h1> MAINTENANCE TASK ID <%= @task.id %> <% if current_user.technician == false %>
+        <%= link_to edit_task_path(@task) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+        <% end %> </h1>
           <h2>Technician: <strong><%= @task.technician.first_name.upcase %> <%= @task.technician.last_name.upcase %></strong></h2>
           <h2>Assigned by: <strong><%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></strong></h2>
          <div class="status"> <%= if @task.complete_task
@@ -85,17 +88,13 @@
           <%= simple_form_for [@task, @comment] do |f| %>
           <%= f.input :content, label: 'Leave your comment' %>
           <%= f.input :photos, label: 'Add your pictures', as: :file, input_html: { multiple: true } %>
-          <%= f.button :submit, 'POST A MESSAGE', class: "btn btn-primary" %>
+          <%= f.button :submit, 'POST', class: "btn btn-primary" %>
           <% end %>
         <% end %>
       </div>
       <% if @task.complete_task == false && @task.comments.count >= 1 %>
         <%= link_to "COMPLETE THE TASK", completed_task_path(@task), class: "btn btn-primary" %>
       <% end %>
-      <div class="edit-btn">
-        <% if current_user.technician == false %>
-        <%= link_to "EDIT A TASK", edit_task_path(@task), class:"btn btn-primary" %>
-        <% end %>
       </div>
     </div>
 </div>
