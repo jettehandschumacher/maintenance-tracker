@@ -3,22 +3,24 @@
   <%= render "shared/sidebar" %>
   <% end %>
     <div class="tasks-index flex-grow-1">
-      <div class="filter-bar">
-        <div class="btn-group">
-          <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 12px;">
-            Sort by
-          </button>
-          <ul class="dropdown-menu">
-            <li data-action="click->tasks#sortByName">Task Name</li>
-            <li>Technician</li>
-            <li>Date Due</li>
-            <li>Network</li>
-          </ul>
+      <div class="filter-bar justify-content-between">
+        <div class="search-bar" data-controller="search-technician" >
+          <%= form_with url: tasks_path, method: :get, html: {class:
+    "mb-4", data: {search_technician_target: "form"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Type in technician name",
+                     value: params[:query],
+                     data: {search_technician_target: "input"} %>
+          <% end %>
         </div>
-        <label for="complete">Hide Complete Tasks</label>
-        <input type="checkbox" data-action="click->tasks#hideComplete" name="complete">
+        <div>
+          <label for="complete">Hide Complete Tasks</label>
+          <input type="checkbox" data-action="click->tasks#hideComplete" name="complete">
+        </div>
+
       </div>
-        <div class="all-tasks">
+        <div class="all-tasks" data-search-tasks-target="list" >
           <div class="task-info-header">
             <li>TASK NAME</li>
             <li>TECHNICIAN</li>

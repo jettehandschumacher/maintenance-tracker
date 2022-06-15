@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="service-equipment">
   <%= simple_form_for @task do |f| %>
     <div class="row mt-4">
       <div class="col-3">
@@ -10,9 +10,15 @@
     </div>
     <%= f.input :extra_info %>
     <%= f.association :technician, as: :radio_buttons, :collection => User.where(:technician => 'true'), :label_method  => lambda { |technician| "#{technician.first_name.capitalize} #{technician.last_name.capitalize}" } %>
-    <%= f.association :service %>
-    <%= f.association :equipment %>
+    <div>
+      <%= f.association :service, input_html: { data: { action: 'change->service-equipment#updateInput '} } %>
+    </div>
+    <div data-service-equipment-target='serviceInput'>
+      <p>Please select a service to select equipment</p>
+    </div>
     <%= f.association :waterpoint, :label_method => lambda { |waterpoint| "#{waterpoint.waterpoint_type} at #{waterpoint.network.name}" } %>
     <%= f.button :submit, 'CREATE A TASK', class: "btn btn-primary" %>
   <% end %>
 </div>
+
+ <%# input_html:  { data: { action: "change->service-equipment#connect" } }  %>
