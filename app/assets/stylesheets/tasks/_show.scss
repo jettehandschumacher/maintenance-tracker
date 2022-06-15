@@ -3,6 +3,11 @@
   font-size: 18px;
   color: grey;
   margin-top: -6px;
+    i {
+      font-size: 18px;
+      padding-left: 8px;
+      color: grey;
+    }
  }
  padding: 14px 62px 24px 32px;
  h2 {
@@ -54,7 +59,7 @@
   height: 100px;
   margin-right: 10px;
   text-align: center;
-  border: 1px solid #0a68f2;
+  border: 1px solid #2b3fb9;
 
     p {
       font-size: 12px;
@@ -79,7 +84,7 @@
   width: 155px;
   height: 100px;
   text-align: center;
-  border: 1px solid #0a68f2;
+  border: 1px solid #2b3fb9;
 
     p {
       font-size: 12px;
@@ -181,11 +186,6 @@ hr {
   font-size: 14px;
   color: #5C5C5C;
   }
-}
-
-.edit-btn {
-  text-align: right;
-  padding-top: 48px;
 }
 
 
