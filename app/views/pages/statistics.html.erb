@@ -7,7 +7,7 @@
         <div class="top-left-charts">
           <div class="pie">
             <p> No. of task completed</p>
-            <%= pie_chart Task.group(:complete_task).count, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
+            <%= pie_chart @tasks_completed, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
           </div>
           <div class="pie">
             <p> Total number of services</p>
@@ -15,11 +15,11 @@
           </div>
           <div class="pie">
             <p> No. of task completed</p>
-            <%= pie_chart Task.group(:complete_task).count, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
+            <%= pie_chart @tasks_completed, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
           </div>
           <div class="pie">
             <p> No. of task completed</p>
-            <%= pie_chart Task.group(:complete_task).count, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
+            <%= pie_chart @tasks_completed, colors: ["#F69E36", "#0D6EFD"], legend: false, width: "100px", height: "100px", donut: true  %>
           </div>
 
         </div>
@@ -35,9 +35,9 @@
 
 
           <div class="line">
-            <p>Total number of task each month</p>
+            <p>Total number of tasks each month</p>
             <div class="line-chart">
-          <%= line_chart Task.group_by_month(:end_date).count, colors: ["#F69E36", "#0D6EFD"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>
+          <%= line_chart @tasks_per_month, colors: ["#F69E36", "#0D6EFD"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>
             </div>
           </div>
 
