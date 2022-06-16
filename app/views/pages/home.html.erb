@@ -38,7 +38,8 @@
 
       <div class="line">
         <div class="line-home">
-          <p>STATISTICS FOR THIS MONTH</p>
+          <li>STATISTICS FOR THIS MONTH</li>
+          <li><%= link_to "See All Stats", statistics_path(@statistics) %></li>
         </div>
           <div class="line-chart">
         <%= column_chart @tasks_per_month, colors: ["rgba(246, 158, 54, 1)"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>

@@ -61,6 +61,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   .network-info {
     min-height: 93px;
+    border-bottom: solid 1px rgba(228, 201, 160, 0.2);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -94,9 +95,21 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 20px;
     .line-home {
-      p {
-      margin-top: 19px;
-    }
+
+    a {
+      text-decoration: none;
+      color: rgb(32,96,61);
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      align-items: center;
+      padding-right: 48px;
+      padding-left: 48px;
+      font-size: 16px;
+        &:hover {
+        color: blue;
+        }
+      }
   }
     .column-chart-home {
     padding: 16px;
@@ -104,4 +117,22 @@
     flex-direction: row;
     display: flex;
     }
+  }
+
+  .line-home {
+    min-height: 93px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    list-style: none;
+    color: #5C5C5C;
+    border-bottom: solid 1px rgba(228, 201, 160, 0.2);
+      a {
+        text-decoration: none;
+        color: rgb(32,96,61);
+        &:hover {
+          color: blue;
+        }
+      }
   }
