@@ -52,7 +52,7 @@ class TasksController < ApplicationController
   def completed
     @task = Task.find(params[:id])
     @task.update_attribute(:complete_task, true)
-    redirect_to presentation_path(@presentation)
+    redirect_to root_path(@root)
   end
 
   private
