@@ -40,64 +40,67 @@
           <p> <%= @task.extra_info %></p>
         </div>
 
+        <hr>
+
+        <div class="details p-0">
+
+          <div class="address">
+            <div class="address-info p-3">
+              <h3>SITE ADDRESS</h3>
+              <ul>
+                <div class="address-details">
+                <li><strong>Network:</strong> <%= @task.network.name.upcase %></li>
+                <li><strong>Waterpoint:</strong> <%= @task.waterpoint.waterpoint_type.upcase %></li>
+                <li><strong>Address:</strong> <%= @task.network.address.upcase %></li>
+                <li><strong>Manager:</strong> <%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></li>
+                </div>
+              </ul>
+              <div class="equipment">
 <hr>
-
-
-      <div class="address">
-
-        <div class="address-info">
-          <h3>SITE ADDRESS</h3>
-          <ul>
-            <div class="address-details">
-            <li><strong>Network:</strong> <%= @task.network.name.upcase %></li>
-            <li><strong>Waterpoint:</strong> <%= @task.waterpoint.waterpoint_type.upcase %></li>
-            <li><strong>Address:</strong> <%= @task.network.address.upcase %></li>
-            <li><strong>Manager:</strong> <%= @task.manager.first_name.upcase %> <%= @task.manager.last_name.upcase %></li>
+            <h4>EQUIPMENT INFO</h4>
+            <p>Equipment to be maintained: <strong><%= @task.equipment.name %></strong></p>
             </div>
-          </ul>
-        </div>
-        <div class="flex-grow-1 d-flex justify-content-end">
-          <div style="width: 80%; height: 200px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+            <div class="flex-grow-1 d-flex justify-content-end">
+              <div style="width: 80%; height: 100%; border-radius: 0 10px 10px 0"
+                data-controller="map"
+                data-map-markers-value="<%= @markers.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+            </div>
+          </div>
+
+
+
+
+            <% if @task.comments.exists? %>
+              <div class="comments">
+                <h4>COMMENTS</h4>
+                <% @task.comments.each do |comment| %>
+                <p><%= comment.content %></p>
+                <p><%= time_ago_in_words(comment.created_at)%> ago</p>
+                  <% comment.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key, height: 150, width: 250, crop: :fill %>
+                  <% end %>
+              <% end %>
+              </div>
+            <% end %>
+            <% if current_user.technician == true %>
+              <div class="comment-new">
+                <% if @task.comments.count < 1 %>
+                  <%= simple_form_for [@task, @comment] do |f| %>
+                  <%= f.input :content, label: 'Leave your comment' %>
+                  <%= f.input :photos, label: 'Add your pictures', as: :file, input_html: { multiple: true } %>
+                  <%= f.button :submit, 'POST', class: "btn btn-primary" %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+
+            <% if @task.complete_task == false && @task.comments.count >= 1 %>
+              <%= link_to "COMPLETE THE TASK", completed_task_path(@task), class: "btn btn-primary" %>
+            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-
-      <hr>
-
-      <div class="equipment">
-      <h4>EQUIPMENT INFO</h4>
-      <p>Equipment to be maintained: <strong><%= @task.equipment.name %></strong></p>
-      </div>
-      <% if @task.comments.exists? %>
-        <div class="comments">
-          <h4>COMMENTS</h4>
-          <% @task.comments.each do |comment| %>
-          <p><%= comment.content %></p>
-          <p><%= time_ago_in_words(comment.created_at)%> ago</p>
-            <% comment.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 150, width: 250, crop: :fill %>
-            <% end %>
-         <% end %>
-        </div>
-      <% end %>
-      <% if current_user.technician == true %>
-        <div class="comment-new">
-          <% if @task.comments.count < 1 %>
-            <%= simple_form_for [@task, @comment] do |f| %>
-            <%= f.input :content, label: 'Leave your comment' %>
-            <%= f.input :photos, label: 'Add your pictures', as: :file, input_html: { multiple: true } %>
-            <%= f.button :submit, 'POST', class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <hr>
-      <% if @task.complete_task == false && @task.comments.count >= 1 %>
-        <%= link_to "COMPLETE THE TASK", completed_task_path(@task), class: "btn btn-primary" %>
-      <% end %>
-      </div>
-    </div>
 </div>

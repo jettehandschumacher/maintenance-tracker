@@ -40,12 +40,12 @@ tank_5m3 = Equipment.create!(name: "Tank 5m3", equipment_type: "Tank", warranty_
 tank_10m3 = Equipment.create!(name: "Tank 10m3", equipment_type: "Tank", warranty_valid: true)
 filter_system = Equipment.create!(name: "Pentek filter system", equipment_type: "Filter", warranty_valid: true)
 gac_cto = Equipment.create!(name: "2 stage filter system", equipment_type: "Filter", warranty_valid: true)
-klorman = Equipment.create!(name: "Klorman inline dispencer", equipment_type: "Filter", warranty_valid: true)
+klorman = Equipment.create!(name: "Klorman inline dispenser", equipment_type: "Filter", warranty_valid: true)
 softener = Equipment.create!(name: "Water softener", equipment_type: "Water", warranty_valid: true)
 generator = Equipment.create!(name: "15 KVA Generator", equipment_type: "Electrics", warranty_valid: true)
 booster_pump = Equipment.create!(name: "Booster pump", equipment_type: "Pump", warranty_valid: true)
 electric_kit = Equipment.create!(name: "Electric kit", equipment_type: "Electrics", warranty_valid: true)
-battereis = Equipment.create!(name: "Batteries", equipment_type: "Electrics", warranty_valid: true)
+batteries = Equipment.create!(name: "Batteries", equipment_type: "Electrics", warranty_valid: true)
 paid_meter = Equipment.create!(name: "Pre-Paid Meter", equipment_type: "Electrics", warranty_valid: false)
 switch = Equipment.create!(name: "Pressure Switch", equipment_type: "Electrics", warranty_valid: false)
 gauges = Equipment.create!(name: "Pressure gauges", equipment_type: "Meter", warranty_valid: false)
@@ -70,6 +70,8 @@ karukoro_network = Network.create!(name: "Karukoro", address: 'KG 5 Ave, Kigali,
 kanyinya_network = Network.create!(name: "Kanyinya", address: '19 KG 573 St, Kigali, Rwanda')
 nyarufunzo_network = Network.create!(name: "Nyarufunzo", address: 'KG 28 Ave, Kigali, Rwanda')
 rusizi_network = Network.create!(name: "Rusizi", address: '131 KN 2 Ave, Kigali, Rwanda')
+rukoronko_network = Network.create!(name: "Rukoronko", address: 'KG 12 Ave, Kigali, Rwanda')
+mugesera_network = Network.create!(name: "Mugesera", address: 'KG 572 St, Kigali, Rwanda')
 
 puts "Created Networks"
 
@@ -85,6 +87,8 @@ nyarufunzo_node = Waterpoint.create(name: "Nyarufunzo", waterpoint_type: "Node",
 rusizi_nexus = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nexus", address: "131 KN 2 Ave, Kigali, Rwanda", kiosk: true, network: rusizi_network)
 rusizi_node = Waterpoint.create(name: "Rusizi", waterpoint_type: "Node", address: "131 KN 2 Ave, Kigali, Rwanda", kiosk: true, network: rusizi_network)
 rusizi_nano = Waterpoint.create(name: "Rusizi", waterpoint_type: "Nano", address: "131 KN 2 Ave, Kigali, Rwanda", kiosk: false, network: rusizi_network)
+rukoronko_nexus = Waterpoint.create(name: "Rukoronko", waterpoint_type: "Nexus", address: "KG 12 Ave, Kigali, Rwanda", kiosk: true, network: rukoronko_network)
+mugesera_nexus = Waterpoint.create(name: "Mugesera", waterpoint_type: "Nexus", address: "KG 572 St, Kigali, Rwanda", kiosk: true, network: mugesera_network)
 
 puts "Created Waterpoints"
 
@@ -107,7 +111,7 @@ WaterpointEquipment.create!(equipment: booster_pump, waterpoint: karukoro_nexus)
 WaterpointEquipment.create!(equipment: gauges, waterpoint: karukoro_nexus)
 
 WaterpointEquipment.create!(equipment: sun_pump, waterpoint: kanyinya_nexus)
-WaterpointEquipment.create!(equipment: battereis, waterpoint: kanyinya_standpipe)
+WaterpointEquipment.create!(equipment: batteries, waterpoint: kanyinya_standpipe)
 WaterpointEquipment.create!(equipment: grundfos_pump, waterpoint: kanyinya_nexus)
 WaterpointEquipment.create!(equipment: solar_pannels, waterpoint: kanyinya_standpipe)
 WaterpointEquipment.create!(equipment: kiosk, waterpoint: kanyinya_standpipe)
@@ -123,6 +127,18 @@ WaterpointEquipment.create!(equipment: pressure_tank, waterpoint: rusizi_node)
 WaterpointEquipment.create!(equipment: aquasept, waterpoint: rusizi_nano)
 WaterpointEquipment.create!(equipment: electric_kit, waterpoint: rusizi_node)
 WaterpointEquipment.create!(equipment: filter_system, waterpoint: rusizi_nano)
+
+WaterpointEquipment.create!(equipment: flow_meter, waterpoint: rukoronko_nexus)
+WaterpointEquipment.create!(equipment: generator, waterpoint: rukoronko_nexus)
+WaterpointEquipment.create!(equipment: softener, waterpoint: rukoronko_nexus)
+WaterpointEquipment.create!(equipment: booster_pump, waterpoint: rukoronko_nexus)
+WaterpointEquipment.create!(equipment: gauges, waterpoint: rukoronko_nexus)
+
+WaterpointEquipment.create!(equipment: pressure_tank, waterpoint: mugesera_nexus)
+WaterpointEquipment.create!(equipment: klorman, waterpoint: mugesera_nexus)
+WaterpointEquipment.create!(equipment: tank_5m3, waterpoint: mugesera_nexus)
+WaterpointEquipment.create!(equipment: tank_10m3, waterpoint: mugesera_nexus)
+WaterpointEquipment.create!(equipment: solar_pannels, waterpoint: mugesera_nexus)
 
 puts "Created Waterpoint Equipments"
 
@@ -166,8 +182,8 @@ task_twenty = Task.create(start_date: Date.new(2022, 10, 14), end_date: Date.new
 task_twentyone = Task.create(start_date: Date.new(2022, 10, 14), end_date: Date.new(2022, 10, 16), extra_info: "Do this task first thing in the morning", complete_task: false, manager: christelle, technician: bosco, equipment: booster_pump, service: catridge, waterpoint: rusizi_node, network: rusizi_network)
 task_twentytwo = Task.create(start_date: Date.new(2022, 11, 15), end_date: Date.new(2022, 11, 17), extra_info: "A general serice is rquired at this site", complete_task: false, manager: christelle, technician: bosco, equipment: electric_kit, service: general, waterpoint: rusizi_nano, network: rusizi_network)
 task_twentythree = Task.create(start_date: Date.new(2022, 11, 16), end_date: Date.new(2022, 11, 17), extra_info: "Nexus needs to be painted", complete_task: false, manager: christelle, technician: bosco, equipment: kiosk, service: painting, waterpoint: rusizi_nano, network: rusizi_network)
-task_twentyfour = Task.create(start_date: Date.new(2022, 11, 16), end_date: Date.new(2022, 11, 17), extra_info: "Make sure to take the rigth tools with you", complete_task: false, manager: christelle, technician: bosco, equipment: battereis, service: catridge, waterpoint: nyarufunzo_nexus, network: nyarufunzo_network)
-task_twentyfive = Task.create(start_date: Date.new(2022, 12, 17), end_date: Date.new(2022, 12, 18), extra_info: "Make sure to check on the right batteries", complete_task: false, manager: christelle, technician: emile, equipment: battereis, service: catridge, waterpoint: nyarufunzo_nexus, network: nyarufunzo_network)
+task_twentyfour = Task.create(start_date: Date.new(2022, 11, 16), end_date: Date.new(2022, 11, 17), extra_info: "Make sure to take the rigth tools with you", complete_task: false, manager: christelle, technician: bosco, equipment: batteries, service: catridge, waterpoint: nyarufunzo_nexus, network: nyarufunzo_network)
+task_twentyfive = Task.create(start_date: Date.new(2022, 12, 17), end_date: Date.new(2022, 12, 18), extra_info: "Make sure to check on the right battereis", complete_task: false, manager: christelle, technician: emile, equipment: batteries, service: catridge, waterpoint: nyarufunzo_nexus, network: nyarufunzo_network)
 task_twentysix = Task.create(start_date: Date.new(2022, 12, 18), end_date: Date.new(2022, 12, 19), extra_info: "Please check on the switch at Nyarufunzu", complete_task: false, manager: christelle, technician: emile, equipment: switch, service: catridge, waterpoint: nyarufunzo_nexus, network: nyarufunzo_network)
 task_swentyseven = Task.create(start_date: Date.new(2022, 12, 19), end_date: Date.new(2022, 12, 20), extra_info: "Please complete task on time", complete_task: false, manager: christelle, technician: emile, equipment: switch, service: catridge, waterpoint: nyarufunzo_node, network: nyarufunzo_network)
 task_twentyeight = Task.create(start_date: Date.new(2022, 12, 20), end_date: Date.new(2022, 12, 21), extra_info: "Take a closer look at the gauges - water has not been runnin", complete_task: false, manager: christelle, technician: emile, equipment: gauges, service: catridge, waterpoint: nyarufunzo_node, network: nyarufunzo_network)
@@ -193,6 +209,14 @@ task_fourtyseven = Task.create(start_date: Date.new(2022, 7, 28), end_date: Date
 task_fourtyeigth = Task.create(start_date: Date.new(2022, 8, 15), end_date: Date.new(2022, 8, 17), extra_info: "Be caredul with the tank, its leaking", complete_task: false, manager: christelle, technician: christine, equipment: pressure_tank, service: replacement, waterpoint: kanyinya_nexus, network:kanyinya_network)
 task_fourtynine = Task.create(start_date: Date.new(2022, 9, 8), end_date: Date.new(2022, 9, 10), extra_info: "A general service must be provided at the nexus", complete_task: false, manager: christelle, technician: christine, equipment: uv_55W, service: general, waterpoint: kanyinya_nexus, network:kanyinya_network)
 task_fivty = Task.create(start_date: Date.new(2022, 10, 5), end_date: Date.new(2022, 10, 7), extra_info: "Kanyinya is having way too many tasks this month - please check!", complete_task: false, manager: christelle, technician: christine, equipment: uv_55W, service: maintenance, waterpoint: kanyinya_nexus, network:kanyinya_network)
+task_fivtyone = Task.create(start_date: Date.new(2022, 6, 17), end_date: Date.new(2022, 6, 17), extra_info: "Nexus needs to be painted", complete_task: false, manager: christelle, technician: bosco, equipment: kiosk, service: painting, waterpoint: rukoronko_nexus, network: rukoronko_network)
+task_fivtytwo = Task.create(start_date: Date.new(2022, 6, 17), end_date: Date.new(2022, 6, 17), extra_info: "Nexus must be cleaned ASAP", complete_task: false, manager: christelle, technician: christine, equipment: kiosk, service: painting, waterpoint: rukoronko_nexus, network: rukoronko_network)
+task_twentythree = Task.create(start_date: Date.new(2022, 6, 17), end_date: Date.new(2022, 6, 17), extra_info: "The gauges at Mugeesra are not working", complete_task: false, manager: christelle, technician: emile, equipment: gauges, service: cleaning, waterpoint: mugesera_nexus, network: mugesera_network)
+task_fivtyfour = Task.create(start_date: Date.new(2022, 6, 16), end_date: Date.new(2022, 6, 16), extra_info: "Nexus needs to be painted", complete_task: true, manager: christelle, technician: bosco, equipment: kiosk, service: painting, waterpoint: rukoronko_nexus, network: rukoronko_network)
+task_fivtyfive = Task.create(start_date: Date.new(2022, 6, 16), end_date: Date.new(2022, 6, 16), extra_info: "Nexus must be cleaned ASAP", complete_task: true, manager: christelle, technician: christine, equipment: kiosk, service: painting, waterpoint: rukoronko_nexus, network: rukoronko_network)
+task_twentysix = Task.create(start_date: Date.new(2022, 6, 16), end_date: Date.new(2022, 6, 16), extra_info: "The gauges at Mugeesra are not working", complete_task: false, manager: christelle, technician: emile, equipment: gauges, service: cleaning, waterpoint: mugesera_nexus, network: mugesera_network)
+
+
 
 puts "Created Tasks"
 
@@ -237,7 +261,6 @@ puts "Service Equipment"
 # tank_5m3 = Equipment.create!(name: "Tank 5m3", equipment_type: "Tank", warranty_valid: true)
 # tank_10m3 = Equipment.create!(name: "Tank 10m3", equipment_type: "Tank", warranty_valid: true)
 # electric_kit = Equipment.create!(name: "Electric kit", equipment_type: "Electrics", warranty_valid: true)
-# battereis = Equipment.create!(name: "Batteries", equipment_type: "Electrics", warranty_valid: true)
 # paid_meter = Equipment.create!(name: "Pre-Paid Meter", equipment_type: "Electrics", warranty_valid: false)
 # switch = Equipment.create!(name: "Pressure Switch", equipment_type: "Electrics", warranty_valid: false)
 # gauges = Equipment.create!(name: "Pressure gauges", equipment_type: "Meter", warranty_valid: false)

@@ -29,13 +29,20 @@
         </div>
         <div class="network-chart">
           <div class="pie-chart-home">
-            <%= bar_chart Task.joins(:network).group("networks.name").count, colors: ["#0073DE", "#E4C9A0"], height: "220px", xtitle: "Total", discrete: true, label: "TOTAL OF TASKS" %>
+            <%= pie_chart @tasks_completed, colors: ["#F69E36", "#0073de"], legend: true, width: "285px", height: "285px", donut: true  %>
           </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="stats">
-    </div>
+
+
+      <div class="line">
+        <div class="line-home">
+          <p>STATISTICS FOR THIS MONTH</p>
+        </div>
+          <div class="line-chart">
+        <%= column_chart @tasks_per_month, colors: ["rgba(246, 158, 54, 1)"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>
+          </div>
+        </div>
   </div>
 </div>

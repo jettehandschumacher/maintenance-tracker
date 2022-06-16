@@ -7,7 +7,7 @@
         <div class="top-left-charts">
           <div class="pie">
             <p> No. of task completed</p>
-            <%= pie_chart @tasks_completed, colors: ["#F69E36", "#0D6EFD"], legend: true, width: "270px", height: "270px", donut: true  %>
+            <%= pie_chart @tasks_completed, colors: ["#F69E36", "rgba(0, 115, 222, 1)"], legend: true, width: "285px", height: "285px", donut: true  %>
           </div>
 
 
@@ -16,7 +16,7 @@
           <div class="column">
             <p>Total number of task by technician</p>
             <div class="column-chart">
-            <%= bar_chart Task.joins(:technician).group("users.first_name").count, colors: ["#F69E36", "#0D6EFD"], height: "220px", xtitle: "Total", discrete: true, label: "TOTAL OF TASKS" %>
+            <%= bar_chart @technician_tasks, stacked: true, colors: ["rgba(0, 115, 222, 1)"], height: "270px", discrete: true, label: "TOTAL OF TASKS" %>
             </div>
           </div>
       </div>
@@ -24,14 +24,14 @@
           <div class="line">
             <p>Total number of tasks each month</p>
             <div class="line-chart">
-          <%= line_chart @tasks_per_month, colors: ["#F69E36", "#0D6EFD"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>
+          <%= line_chart @tasks_per_month, colors: ["#F69E36", "rgba(0, 115, 222, 1)"], legend: false, height: "220px", discrete: true, label: "TOTAL OF TASKS"  %>
             </div>
           </div>
 
           <div class="line">
             <p>Complete and Incomplete Tasks over Time</p>
             <div class="bar-chart">
-            <%= column_chart @split_tasks_per_month, stacked: true, colors: ["#F69E36", "#0D6EFD"], legend: false, height: "220px", discrete: true, label: ["INCOMPLETE TASKS", "COMPLETE TASKS"] %>
+            <%= column_chart @split_tasks_per_month, stacked: true, colors: ["#F69E36", "rgba(0, 115, 222, 1)"], legend: false, height: "220px", discrete: true, label: ["INCOMPLETE TASKS", "COMPLETE TASKS"] %>
 
             </div>
           </div>
