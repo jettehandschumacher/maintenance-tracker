@@ -71,8 +71,8 @@
           </div>
         </div>
 
+
         <div class="comments">
-          <% if @task.comments.exists? %>
           <h4>COMMENTS</h4>
           <% @task.comments.each do |comment| %>
           <p><%= comment.content %></p>
@@ -81,6 +81,7 @@
               <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill %>
             <% end %>
           <% end %>
+        </div>
             <% if current_user.technician == true %>
               <div class="comment-new">
                 <% if @task.comments.count < 1 %>
@@ -99,5 +100,4 @@
             </div>
           </div>
         </div>
-      <% end %>
 </div>

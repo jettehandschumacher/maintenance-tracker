@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task.network = Waterpoint.find(task_params[:waterpoint_id]).network
     @task.manager = current_user
     if @task.save!
-      redirect_to tasks_path(@tasks)
+      redirect_to root_path(@root)
     else
       render :new, :unprocessable_entity
     end
