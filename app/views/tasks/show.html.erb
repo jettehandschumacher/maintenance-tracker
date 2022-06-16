@@ -78,7 +78,7 @@
           <p><%= comment.content %></p>
           <p><%= time_ago_in_words(comment.created_at)%> ago</p>
             <% comment.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 150, width: 250, crop: :fill %>
+              <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill %>
             <% end %>
          <% end %>
         </div>
