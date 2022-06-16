@@ -1,11 +1,11 @@
-<div class="container" data-controller="service-equipment">
+<div class="form-page" data-controller="service-equipment flatpickr">
   <%= simple_form_for @task do |f| %>
     <div class="row mt-4">
-      <div class="col-3">
-        <%= f.input :start_date, as: :date, html5: true, required: true%>
+      <div class="col-6">
+        <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
-      <div class="col-9">
-        <%= f.input :end_date, as: :date, html5: true, required: true%>
+      <div class="col-6">
+        <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
     </div>
     <%= f.input :extra_info %>
@@ -14,7 +14,6 @@
       <%= f.association :service, input_html: { data: { action: 'change->service-equipment#updateInput '} } %>
     </div>
     <div data-service-equipment-target='serviceInput'>
-      <p>Please select a service to select equipment</p>
     </div>
     <%= f.association :waterpoint, :label_method => lambda { |waterpoint| "#{waterpoint.waterpoint_type} at #{waterpoint.network.name}" } %>
     <%= f.button :submit, 'CREATE A TASK', class: "btn btn-primary" %>

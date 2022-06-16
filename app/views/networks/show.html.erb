@@ -89,7 +89,7 @@
             <li>TECHNICIAN</li>
             <li>MANAGER</li>
           </div>
-          <% @network.tasks.order(created_at: :desc).each do |task| %>
+          <% @network.tasks.order(end_date: :asc).each do |task| %>
             <div class="task-details">
             <li><%= task.service.name %></li>
             <li><%= task.waterpoint.waterpoint_type %></li>

@@ -30,6 +30,7 @@
 
 
 .info-network {
+  padding: 0px 30px;
   h1 {
    font-size: 18px;
    color: grey;
@@ -37,7 +38,6 @@
    margin-bottom: 0;
    margin-top: 33px;
   }
-  padding: 24px 62px 24px 24px;
   h2 {
     font-size: 12px;
     color: #20603D;
@@ -178,7 +178,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: grid;
-  grid-template-rows: 1fr 1fr auto;
+  grid-template-rows: 1fr auto;
   padding-bottom: 20px;
     .board-info {
       display: flex;
@@ -220,6 +220,6 @@
     li {
       font-size: 14px;
       color: #5C5C5C;
-      padding: 8px;
+      padding: 15px;
     }
   }
