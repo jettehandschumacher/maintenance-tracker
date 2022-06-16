@@ -69,20 +69,18 @@
               </div>
             </div>
           </div>
-      <div class="equipment">
-      <h4>EQUIPMENT INFO</h4>
-      <p>Equipment to be maintained: <strong><%= @task.equipment.name %></strong></p>
-      </div>
-      <% if @task.comments.exists? %>
+        </div>
+
         <div class="comments">
+          <% if @task.comments.exists? %>
           <h4>COMMENTS</h4>
           <% @task.comments.each do |comment| %>
           <p><%= comment.content %></p>
           <p><%= time_ago_in_words(comment.created_at)%> ago</p>
             <% comment.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill %>
-
+              <%= cl_image_tag photo.key, height: 250, width: 400, crop: :fill %>
             <% end %>
+          <% end %>
             <% if current_user.technician == true %>
               <div class="comment-new">
                 <% if @task.comments.count < 1 %>
@@ -101,4 +99,5 @@
             </div>
           </div>
         </div>
+      <% end %>
 </div>
